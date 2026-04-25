@@ -4,447 +4,151 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>정책자금 탐색기 — 내게 맞는 정부 지원금 찾기</title>
+<meta name="description" content="소상공인·예비창업자·일반인을 위한 2026년 정부 정책자금 맞춤 탐색기. 30초 안에 내 조건에 맞는 지원금을 찾아드립니다.">
+<meta property="og:title" content="정책자금 탐색기 — 내게 맞는 정부 지원금 찾기">
+<meta property="og:description" content="소상공인·예비창업자·일반인 맞춤 정책자금 탐색. 30초 안에 찾아드립니다.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta name="theme-color" content="#1B5E3B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F4F2EE;
-    --bg2: #ECEAE5;
-    --surface: #FFFFFF;
-    --border: #D8D4CC;
-    --border2: #C8C2B8;
-    --text-1: #1A1714;
-    --text-2: #5A544C;
-    --text-3: #8A8278;
-    --accent: #1B5E3B;
-    --accent-light: #E8F3ED;
-    --accent2: #8B4513;
-    --accent2-light: #FAF0E8;
-    --accent3: #1A3A5C;
-    --accent3-light: #E8EFF6;
-    --warn: #B85C00;
-    --warn-light: #FEF3E8;
-    --radius: 12px;
-    --radius-sm: 8px;
-    --shadow: 0 2px 12px rgba(0,0,0,0.07);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background: var(--bg);
-    color: var(--text-1);
-    min-height: 100vh;
-    line-height: 1.6;
-  }
-
-  /* ── 헤더 ── */
-  header {
-    background: var(--accent);
-    color: #fff;
-    padding: 0 24px;
-  }
-  .header-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 28px 0 24px;
-  }
-  .header-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .06em;
-    background: rgba(255,255,255,.15);
-    border: 1px solid rgba(255,255,255,.25);
-    border-radius: 20px;
-    padding: 3px 12px;
-    margin-bottom: 12px;
-  }
-  header h1 {
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: -.02em;
-    line-height: 1.3;
-    margin-bottom: 8px;
-  }
-  header p {
-    font-size: 14px;
-    opacity: .8;
-  }
-  .header-stats {
-    display: flex;
-    gap: 24px;
-    margin-top: 20px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255,255,255,.2);
-  }
-  .stat { text-align: center; }
-  .stat-num { font-size: 22px; font-weight: 700; }
-  .stat-label { font-size: 11px; opacity: .7; margin-top: 1px; }
-
-  /* ── 메인 ── */
-  main {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 32px 24px 60px;
-  }
-
-  /* ── 스텝 인디케이터 ── */
-  .steps {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    margin-bottom: 28px;
-  }
-  .step-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-3);
-  }
-  .step-item.active { color: var(--accent); }
-  .step-item.done { color: var(--text-2); }
-  .step-circle {
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: var(--bg2);
-    border: 1.5px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 600;
-    flex-shrink: 0;
-  }
-  .step-item.active .step-circle {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
-  .step-item.done .step-circle {
-    background: var(--accent-light);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .step-line {
-    flex: 1;
-    height: 1.5px;
-    background: var(--border);
-    margin: 0 10px;
-    min-width: 24px;
-  }
-
-  /* ── 섹션 카드 ── */
-  .section-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow);
-    animation: fadeUp .35s ease both;
-  }
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(10px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  .section-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-1);
-    margin-bottom: 4px;
-  }
-  .section-sub {
-    font-size: 12px;
-    color: var(--text-3);
-    margin-bottom: 18px;
-  }
-
-  /* ── 유형 선택 버튼 ── */
-  .type-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  .type-btn {
-    background: var(--bg);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: all .2s;
-    position: relative;
-  }
-  .type-btn:hover {
-    border-color: var(--accent);
-    background: var(--accent-light);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-  }
-  .type-btn.selected {
-    border-color: var(--accent);
-    background: var(--accent-light);
-    box-shadow: 0 0 0 3px rgba(27,94,59,.12);
-  }
-  .type-icon { font-size: 28px; margin-bottom: 8px; }
-  .type-name { font-size: 13px; font-weight: 600; color: var(--text-1); margin-bottom: 4px; }
-  .type-desc { font-size: 11px; color: var(--text-3); line-height: 1.4; }
-  .type-check {
-    position: absolute; top: 10px; right: 10px;
-    width: 18px; height: 18px; border-radius: 50%;
-    background: var(--accent); color: #fff;
-    font-size: 10px; display: none;
-    align-items: center; justify-content: center;
-  }
-  .type-btn.selected .type-check { display: flex; }
-
-  /* ── 조건 입력 ── */
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-group.full { grid-column: 1 / -1; }
-  label {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-2);
-  }
-  select, input {
-    background: var(--bg);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 10px 12px;
-    font-size: 13px;
-    font-family: inherit;
-    color: var(--text-1);
-    outline: none;
-    transition: border-color .2s;
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8278' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 32px;
-  }
-  input { background-image: none; padding-right: 12px; }
-  select:focus, input:focus { border-color: var(--accent); background-color: var(--accent-light); }
-
-  /* ── 버튼 ── */
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 13px 28px;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all .2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .btn-primary:hover { background: #174e31; transform: translateY(-1px); box-shadow: var(--shadow); }
-  .btn-primary:disabled { background: var(--text-3); cursor: not-allowed; transform: none; }
-  .btn-secondary {
-    background: transparent;
-    color: var(--text-2);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 12px 20px;
-    font-size: 13px;
-    font-weight: 500;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .btn-secondary:hover { border-color: var(--text-2); background: var(--bg2); }
-  .btn-row { display: flex; gap: 10px; margin-top: 20px; }
-
-  /* ── 결과 카드 ── */
-  .result-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  .result-count {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--accent);
-    background: var(--accent-light);
-    border: 1px solid var(--accent);
-    border-radius: 20px;
-    padding: 4px 14px;
-  }
-  .fund-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-    margin-bottom: 12px;
-    box-shadow: var(--shadow);
-    animation: fadeUp .3s ease both;
-    position: relative;
-    overflow: hidden;
-    transition: box-shadow .2s, transform .2s;
-  }
-  .fund-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-  .fund-card::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 4px;
-    background: var(--accent);
-    border-radius: 4px 0 0 4px;
-  }
-  .fund-card.type-b::before { background: var(--accent2); }
-  .fund-card.type-c::before { background: var(--accent3); }
-  .fund-card.type-warn::before { background: var(--warn); }
-  .fund-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-  .fund-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
-  .fund-badge {
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 4px;
-    letter-spacing: .03em;
-  }
-  .fb-green { background: var(--accent-light); color: var(--accent); border: 1px solid #B8DCCA; }
-  .fb-brown { background: var(--accent2-light); color: var(--accent2); border: 1px solid #DDCABB; }
-  .fb-blue { background: var(--accent3-light); color: var(--accent3); border: 1px solid #B8CEDE; }
-  .fb-warn { background: var(--warn-light); color: var(--warn); border: 1px solid #F0C89A; }
-  .fb-gray { background: var(--bg2); color: var(--text-2); border: 1px solid var(--border); }
-  .fund-name { font-size: 15px; font-weight: 700; color: var(--text-1); }
-  .fund-org { font-size: 11px; color: var(--text-3); margin-top: 2px; }
-  .fund-amount {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--accent);
-    white-space: nowrap;
-    text-align: right;
-  }
-  .fund-amount small { font-size: 11px; font-weight: 400; color: var(--text-3); display: block; }
-  .fund-desc { font-size: 12px; color: var(--text-2); line-height: 1.65; margin-bottom: 12px; }
-  .fund-info-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-  .fund-info-item {
-    background: var(--bg);
-    border-radius: var(--radius-sm);
-    padding: 8px 10px;
-  }
-  .fii-label { font-size: 10px; color: var(--text-3); font-weight: 500; margin-bottom: 2px; }
-  .fii-value { font-size: 12px; color: var(--text-1); font-weight: 500; }
-  .fund-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-  .fund-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--accent);
-    background: var(--accent-light);
-    border: 1px solid #B8DCCA;
-    border-radius: var(--radius-sm);
-    padding: 7px 14px;
-    text-decoration: none;
-    transition: all .2s;
-  }
-  .fund-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .fund-link.phone { color: var(--accent2); background: var(--accent2-light); border-color: #DDCABB; }
-  .fund-link.phone:hover { background: var(--accent2); color: #fff; border-color: var(--accent2); }
-
-  /* ── 빈 결과 ── */
-  .no-result {
-    text-align: center;
-    padding: 48px 24px;
-    color: var(--text-3);
-  }
-  .no-result-icon { font-size: 40px; margin-bottom: 12px; }
-  .no-result h3 { font-size: 16px; color: var(--text-2); margin-bottom: 6px; }
-
-  /* ── 알림 배너 ── */
-  .notice-banner {
-    background: var(--warn-light);
-    border: 1px solid #F0C89A;
-    border-radius: var(--radius-sm);
-    padding: 10px 14px;
-    font-size: 12px;
-    color: var(--warn);
-    margin-bottom: 16px;
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  /* ── 하단 CTA ── */
-  .cta-box {
-    background: var(--accent);
-    border-radius: var(--radius);
-    padding: 24px;
-    color: #fff;
-    text-align: center;
-    margin-top: 24px;
-  }
-  .cta-box h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-  .cta-box p { font-size: 13px; opacity: .85; margin-bottom: 16px; }
-  .cta-btn {
-    background: #fff;
-    color: var(--accent);
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 11px 24px;
-    font-size: 13px;
-    font-weight: 700;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all .2s;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .cta-btn:hover { background: var(--accent-light); }
-
-  /* ── 반응형 ── */
-  @media (max-width: 580px) {
-    header h1 { font-size: 20px; }
-    .header-stats { gap: 16px; }
-    .type-grid { grid-template-columns: 1fr; }
-    .form-grid { grid-template-columns: 1fr; }
-    .fund-top { flex-direction: column; }
-    .fund-amount { text-align: left; }
-    main { padding: 20px 16px 48px; }
-  }
-
-  /* ── 숨김 ── */
-  .hidden { display: none !important; }
-  .fade-in { animation: fadeUp .35s ease both; }
+:root{--bg:#F4F2EE;--bg2:#ECEAE5;--surface:#fff;--border:#D8D4CC;--text-1:#1A1714;--text-2:#5A544C;--text-3:#8A8278;--accent:#1B5E3B;--al:#E8F3ED;--a2:#8B4513;--a2l:#FAF0E8;--a3:#1A3A5C;--a3l:#E8EFF6;--warn:#B85C00;--wl:#FEF3E8;--r:12px;--rs:8px;--sh:0 2px 12px rgba(0,0,0,.07);--shl:0 8px 32px rgba(0,0,0,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text-1);min-height:100vh;line-height:1.6;-webkit-text-size-adjust:100%}
+/* 헤더 */
+header{background:var(--accent);color:#fff;padding:0 24px}
+.hi{max-width:860px;margin:0 auto;padding:28px 0 24px}
+.hbadge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.06em;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 12px;margin-bottom:12px}
+header h1{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.3;margin-bottom:8px}
+header p{font-size:14px;opacity:.8}
+.hstats{display:flex;gap:24px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2)}
+.stat{text-align:center}.stat-num{font-size:22px;font-weight:700}.stat-label{font-size:11px;opacity:.7;margin-top:1px}
+/* 메인 */
+main{max-width:860px;margin:0 auto;padding:32px 24px 60px}
+/* 스텝 */
+.steps{display:flex;align-items:center;margin-bottom:28px}
+.step-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--text-3)}
+.step-item.active{color:var(--accent)}.step-item.done{color:var(--text-2)}
+.step-circle{width:26px;height:26px;border-radius:50%;background:var(--bg2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0}
+.step-item.active .step-circle{background:var(--accent);border-color:var(--accent);color:#fff}
+.step-item.done .step-circle{background:var(--al);border-color:var(--accent);color:var(--accent)}
+.step-line{flex:1;height:1.5px;background:var(--border);margin:0 10px;min-width:16px}
+/* 카드 */
+.sc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:16px;box-shadow:var(--sh);animation:fu .35s ease both}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.stl{font-size:15px;font-weight:600;color:var(--text-1);margin-bottom:4px}
+.ssub{font-size:12px;color:var(--text-3);margin-bottom:18px}
+/* 유형 버튼 */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tb{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 12px;text-align:center;cursor:pointer;transition:all .2s;position:relative;min-height:110px}
+.tb:hover{border-color:var(--accent);background:var(--al);transform:translateY(-2px);box-shadow:var(--sh)}
+.tb.selected{border-color:var(--accent);background:var(--al);box-shadow:0 0 0 3px rgba(27,94,59,.12)}
+.ti{font-size:28px;margin-bottom:8px}.tn{font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:4px}.td{font-size:11px;color:var(--text-3);line-height:1.4}
+.tc{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:10px;display:none;align-items:center;justify-content:center}
+.tb.selected .tc{display:flex}
+/* 폼 */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fgrp{display:flex;flex-direction:column;gap:6px}.fgrp.full{grid-column:1/-1}
+label{font-size:12px;font-weight:500;color:var(--text-2)}
+select{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rs);padding:10px 32px 10px 12px;font-size:13px;font-family:inherit;color:var(--text-1);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8278' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;min-height:44px}
+select:focus{border-color:var(--accent);background-color:var(--al)}
+/* ▼ HIGH #1 체크박스 */
+.cbg{display:flex;flex-direction:column;gap:8px}
+.cbi{display:flex;align-items:center;gap:10px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rs);padding:10px 12px;cursor:pointer;transition:all .15s;min-height:44px}
+.cbi:hover{border-color:var(--accent);background:var(--al)}
+.cbi.checked{border-color:var(--accent);background:var(--al)}
+.cbi input[type=checkbox]{width:16px;height:16px;flex-shrink:0;accent-color:var(--accent);cursor:pointer}
+.cbi span{font-size:13px;color:var(--text-1)}
+/* 버튼 */
+.bp{background:var(--accent);color:#fff;border:none;border-radius:var(--rs);padding:14px 28px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;min-height:48px}
+.bp:hover{background:#174e31;transform:translateY(-1px);box-shadow:var(--sh)}.bp:active{transform:translateY(0)}
+.bs{background:transparent;color:var(--text-2);border:1.5px solid var(--border);border-radius:var(--rs);padding:12px 20px;font-size:13px;font-weight:500;font-family:inherit;cursor:pointer;transition:all .2s;min-height:48px}
+.bs:hover{border-color:var(--text-2);background:var(--bg2)}
+.br{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+/* 결과 */
+.rh{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.rc{font-size:13px;font-weight:600;color:var(--accent);background:var(--al);border:1px solid var(--accent);border-radius:20px;padding:4px 14px}
+.fc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:12px;box-shadow:var(--sh);animation:fu .3s ease both;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.fc:hover{box-shadow:var(--shl);transform:translateY(-2px)}
+.fc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:4px 0 0 4px}
+.fc.type-b::before{background:var(--a2)}.fc.type-c::before{background:var(--a3)}.fc.type-warn::before{background:var(--warn)}
+.ft{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.fbs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.fb{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;letter-spacing:.03em}
+.fg2{background:var(--al);color:var(--accent);border:1px solid #B8DCCA}
+.fb2{background:var(--a2l);color:var(--a2);border:1px solid #DDCABB}
+.fb3{background:var(--a3l);color:var(--a3);border:1px solid #B8CEDE}
+.fbw{background:var(--wl);color:var(--warn);border:1px solid #F0C89A}
+.fbg{background:var(--bg2);color:var(--text-2);border:1px solid var(--border)}
+.fn{font-size:15px;font-weight:700;color:var(--text-1)}.fo{font-size:11px;color:var(--text-3);margin-top:2px}
+.fa{font-size:17px;font-weight:700;color:var(--accent);white-space:nowrap;text-align:right;flex-shrink:0}
+.fa small{font-size:11px;font-weight:400;color:var(--text-3);display:block}
+.fd{font-size:12px;color:var(--text-2);line-height:1.65;margin-bottom:12px}
+.fir{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:14px}
+.fii{background:var(--bg);border-radius:var(--rs);padding:8px 10px}
+.fil{font-size:10px;color:var(--text-3);font-weight:500;margin-bottom:2px}.fiv{font-size:12px;color:var(--text-1);font-weight:500}
+.fac{display:flex;gap:8px;flex-wrap:wrap}
+.fl{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;color:var(--accent);background:var(--al);border:1px solid #B8DCCA;border-radius:var(--rs);padding:8px 14px;text-decoration:none;transition:all .2s;min-height:36px}
+.fl:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.fl.ph{color:var(--a2);background:var(--a2l);border-color:#DDCABB}.fl.ph:hover{background:var(--a2);color:#fff;border-color:var(--a2)}
+/* ▼ HIGH #3 결과 0개 강화 */
+.nr{text-align:center;padding:40px 20px}
+.nr-icon{font-size:44px;margin-bottom:14px}
+.nr h3{font-size:17px;font-weight:600;color:var(--text-1);margin-bottom:8px}
+.nr p{font-size:13px;color:var(--text-3);margin-bottom:24px;line-height:1.6}
+.nr-actions{display:flex;flex-direction:column;gap:10px;align-items:center}
+.nr-actions .bp,.nr-actions .bs{width:100%;max-width:280px;justify-content:center;text-decoration:none}
+/* 알림 배너 */
+.nb{background:var(--wl);border:1px solid #F0C89A;border-radius:var(--rs);padding:10px 14px;font-size:12px;color:var(--warn);margin-bottom:16px;display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+/* CTA */
+.cta{background:var(--accent);border-radius:var(--r);padding:24px;color:#fff;text-align:center;margin-top:24px}
+.cta h3{font-size:16px;font-weight:600;margin-bottom:6px}.cta p{font-size:13px;opacity:.85;margin-bottom:16px}
+.cta-btn{background:#fff;color:var(--accent);border:none;border-radius:var(--rs);padding:13px 28px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;min-height:48px;line-height:1.4}
+.cta-btn:hover{background:var(--al)}
+/* ▼ HIGH #2 설정 패널 */
+.sp{background:var(--a3l);border:1px solid #B8CEDE;border-radius:var(--rs);padding:12px 16px;margin-bottom:16px;font-size:12px}
+.sp summary{cursor:pointer;font-weight:500;color:var(--a3);list-style:none;display:flex;align-items:center;gap:6px}
+.sp summary::-webkit-details-marker{display:none}
+.sir{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:flex-end}
+.sir input{flex:1;min-width:200px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--rs);padding:8px 12px;font-size:12px;font-family:inherit;color:var(--text-1);outline:none;min-height:40px}
+.sir input:focus{border-color:var(--a3)}
+.bsave{background:var(--a3);color:#fff;border:none;border-radius:var(--rs);padding:8px 16px;font-size:12px;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap;min-height:40px}
+.bsave:hover{background:#142d48}
+.hidden{display:none!important}
+.fi{animation:fu .35s ease both}
+/* ▼ HIGH #4 모바일 */
+@media(max-width:600px){
+  header{padding:0 16px}
+  header h1{font-size:20px}
+  .hstats{gap:16px}.stat-num{font-size:18px}
+  main{padding:20px 16px 48px}
+  .tg{grid-template-columns:1fr}
+  .tb{min-height:80px;padding:14px 16px;display:flex;align-items:center;gap:14px;text-align:left}
+  .ti{font-size:28px;margin-bottom:0;flex-shrink:0}
+  .tinfo{flex:1}
+  .fg{grid-template-columns:1fr}
+  .fgrp.full{grid-column:auto}
+  .ft{flex-direction:column;gap:6px}
+  .fa{text-align:left}
+  .fir{grid-template-columns:1fr 1fr}
+  .br{flex-direction:column}
+  .br .bp,.br .bs{width:100%;justify-content:center}
+  .steps{margin-bottom:20px}
+  .step-item span{display:none}
+  .step-line{min-width:12px;margin:0 6px}
+}
+@media(max-width:380px){.fir{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="header-badge">🇰🇷 2026년 최신 정보 반영</div>
+  <div class="hi">
+    <div class="hbadge">🇰🇷 2026년 최신 정보 반영</div>
     <h1>정책자금 탐색기</h1>
     <p>내 상황에 맞는 정부 지원금을 30초 안에 찾아드립니다</p>
-    <div class="header-stats">
+    <div class="hstats">
       <div class="stat"><div class="stat-num">22+</div><div class="stat-label">지원 사업</div></div>
       <div class="stat"><div class="stat-num">3개</div><div class="stat-label">대상 유형</div></div>
       <div class="stat"><div class="stat-num">무료</div><div class="stat-label">이용 비용</div></div>
@@ -454,59 +158,66 @@
 
 <main>
 
+  <!-- ▼ HIGH #2: 카카오 링크 설정 패널 -->
+  <details class="sp" id="spanel">
+    <summary>⚙️ 관리자 설정 — 상담 링크 변경</summary>
+    <div class="sir">
+      <input type="url" id="kakaoInput" placeholder="카카오 오픈채팅 URL (예: https://open.kakao.com/o/xxxxx)">
+      <button class="bsave" onclick="saveLink()">저장</button>
+    </div>
+    <p style="font-size:11px;color:var(--a3);margin-top:6px">※ open.kakao.com에서 오픈채팅방 생성 후 링크를 붙여넣어 주세요</p>
+  </details>
+
   <!-- 스텝 인디케이터 -->
-  <div class="steps" id="stepIndicator">
-    <div class="step-item active" id="step1Indicator">
-      <div class="step-circle">1</div>
-      <span>유형 선택</span>
-    </div>
+  <div class="steps">
+    <div class="step-item active" id="s1i"><div class="step-circle">1</div><span>유형 선택</span></div>
     <div class="step-line"></div>
-    <div class="step-item" id="step2Indicator">
-      <div class="step-circle">2</div>
-      <span>조건 입력</span>
-    </div>
+    <div class="step-item" id="s2i"><div class="step-circle">2</div><span>조건 입력</span></div>
     <div class="step-line"></div>
-    <div class="step-item" id="step3Indicator">
-      <div class="step-circle">3</div>
-      <span>결과 확인</span>
-    </div>
+    <div class="step-item" id="s3i"><div class="step-circle">3</div><span>결과 확인</span></div>
   </div>
 
-  <!-- STEP 1: 유형 선택 -->
-  <div class="section-card" id="step1">
-    <div class="section-title">나는 누구인가요?</div>
-    <div class="section-sub">해당하는 유형을 선택해 주세요</div>
-    <div class="type-grid">
-      <div class="type-btn" onclick="selectType('소상공인', this)">
-        <div class="type-check">✓</div>
-        <div class="type-icon">🏪</div>
-        <div class="type-name">소상공인 사장님</div>
-        <div class="type-desc">현재 사업체를 운영 중인 개인·법인 사업자</div>
+  <!-- STEP 1 -->
+  <div class="sc" id="step1">
+    <div class="stl">나는 누구인가요?</div>
+    <div class="ssub">해당하는 유형을 선택해 주세요</div>
+    <div class="tg">
+      <div class="tb" onclick="selectType('소상공인',this)">
+        <div class="tc">✓</div>
+        <div class="ti">🏪</div>
+        <div class="tinfo">
+          <div class="tn">소상공인 사장님</div>
+          <div class="td">현재 사업체를 운영 중인 개인·법인 사업자</div>
+        </div>
       </div>
-      <div class="type-btn" onclick="selectType('예비창업자', this)">
-        <div class="type-check">✓</div>
-        <div class="type-icon">🌱</div>
-        <div class="type-name">예비 창업자</div>
-        <div class="type-desc">창업을 준비 중이거나 1년 미만 신규 사업자</div>
+      <div class="tb" onclick="selectType('예비창업자',this)">
+        <div class="tc">✓</div>
+        <div class="ti">🌱</div>
+        <div class="tinfo">
+          <div class="tn">예비 창업자</div>
+          <div class="td">창업을 준비 중이거나 1년 미만 신규 사업자</div>
+        </div>
       </div>
-      <div class="type-btn" onclick="selectType('일반인', this)">
-        <div class="type-check">✓</div>
-        <div class="type-icon">👤</div>
-        <div class="type-name">일반인·근로자</div>
-        <div class="type-desc">취업·생활안정·주거 지원이 필요한 분</div>
+      <div class="tb" onclick="selectType('일반인',this)">
+        <div class="tc">✓</div>
+        <div class="ti">👤</div>
+        <div class="tinfo">
+          <div class="tn">일반인·근로자</div>
+          <div class="td">취업·생활안정·주거 지원이 필요한 분</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- STEP 2: 조건 입력 -->
-  <div class="section-card hidden" id="step2">
-    <div class="section-title">조건을 입력해 주세요</div>
-    <div class="section-sub">더 정확한 결과를 위해 해당하는 항목을 선택해 주세요</div>
+  <!-- STEP 2 -->
+  <div class="sc hidden" id="step2">
+    <div class="stl">조건을 입력해 주세요</div>
+    <div class="ssub">더 정확한 결과를 위해 해당하는 항목을 선택해 주세요</div>
 
-    <!-- 소상공인 폼 -->
-    <div id="form소상공인">
-      <div class="form-grid">
-        <div class="form-group">
+    <!-- 소상공인 -->
+    <div id="f소상공인">
+      <div class="fg">
+        <div class="fgrp">
           <label>업종</label>
           <select id="업종">
             <option value="">선택하세요</option>
@@ -518,7 +229,7 @@
             <option value="기타">기타</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>연 매출액</label>
           <select id="매출">
             <option value="">선택하세요</option>
@@ -527,8 +238,8 @@
             <option value="3억초과">3억 초과</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>직원 수 (상시근로자)</label>
+        <div class="fgrp">
+          <label>직원 수</label>
           <select id="직원수">
             <option value="">선택하세요</option>
             <option value="없음">없음 (1인 사업자)</option>
@@ -536,7 +247,7 @@
             <option value="5명이상">5명 이상</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>창업 연차</label>
           <select id="창업연차">
             <option value="">선택하세요</option>
@@ -545,18 +256,18 @@
             <option value="3년이상">3년 이상</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>현재 상황 (복수 선택 가능)</label>
-          <select id="상황">
-            <option value="">선택하세요</option>
-            <option value="경영안정">일반 경영안정 자금 필요</option>
-            <option value="재해">재해·재난 피해</option>
-            <option value="채무">채무조정·재기 필요</option>
-            <option value="성장">성장·시설 투자 희망</option>
-            <option value="청년고용">청년 직원 고용 중</option>
-          </select>
+        <!-- ▼ HIGH #1: 복수 선택 체크박스 -->
+        <div class="fgrp full">
+          <label>현재 상황 <span style="font-weight:400;color:var(--text-3)">(해당 항목 모두 선택 가능)</span></label>
+          <div class="cbg">
+            <label class="cbi"><input type="checkbox" value="경영안정" onchange="syncCb(this)"><span>일반 경영안정 자금 필요</span></label>
+            <label class="cbi"><input type="checkbox" value="재해" onchange="syncCb(this)"><span>재해·재난 피해</span></label>
+            <label class="cbi"><input type="checkbox" value="채무" onchange="syncCb(this)"><span>채무조정·재기 필요</span></label>
+            <label class="cbi"><input type="checkbox" value="성장" onchange="syncCb(this)"><span>성장·시설 투자 희망</span></label>
+            <label class="cbi"><input type="checkbox" value="청년고용" onchange="syncCb(this)"><span>청년 직원 고용 중</span></label>
+          </div>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>신용점수 (NICE 기준, 모르면 생략)</label>
           <select id="신용점수">
             <option value="">모름 / 해당없음</option>
@@ -568,10 +279,10 @@
       </div>
     </div>
 
-    <!-- 예비창업자 폼 -->
-    <div id="form예비창업자" class="hidden">
-      <div class="form-grid">
-        <div class="form-group">
+    <!-- 예비창업자 -->
+    <div id="f예비창업자" class="hidden">
+      <div class="fg">
+        <div class="fgrp">
           <label>나이</label>
           <select id="나이_예비">
             <option value="">선택하세요</option>
@@ -579,7 +290,7 @@
             <option value="40이상">만 40세 이상</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>창업 예정 업종</label>
           <select id="업종_예비">
             <option value="">선택하세요</option>
@@ -591,7 +302,7 @@
             <option value="기타">기타</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>예상 창업 자금</label>
           <select id="창업자금">
             <option value="">선택하세요</option>
@@ -600,7 +311,7 @@
             <option value="2억초과">2억 초과</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>현재 직업 상태</label>
           <select id="직업상태">
             <option value="">선택하세요</option>
@@ -613,10 +324,10 @@
       </div>
     </div>
 
-    <!-- 일반인 폼 -->
-    <div id="form일반인" class="hidden">
-      <div class="form-grid">
-        <div class="form-group">
+    <!-- 일반인 -->
+    <div id="f일반인" class="hidden">
+      <div class="fg">
+        <div class="fgrp">
           <label>나이</label>
           <select id="나이_일반">
             <option value="">선택하세요</option>
@@ -625,7 +336,7 @@
             <option value="노년">만 65세 이상</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>필요한 지원 유형</label>
           <select id="지원유형">
             <option value="">선택하세요</option>
@@ -636,7 +347,7 @@
             <option value="복지">복지·의료</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>소득 수준</label>
           <select id="소득">
             <option value="">선택하세요</option>
@@ -646,7 +357,7 @@
             <option value="일반">일반</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="fgrp">
           <label>특이 상황</label>
           <select id="특이상황">
             <option value="">해당없음</option>
@@ -659,722 +370,186 @@
       </div>
     </div>
 
-    <div class="btn-row">
-      <button class="btn-primary" onclick="showResults()">🔍 맞는 정책자금 찾기</button>
-      <button class="btn-secondary" onclick="goBack()">← 이전</button>
+    <div class="br">
+      <button class="bp" onclick="showResults()">🔍 맞는 정책자금 찾기</button>
+      <button class="bs" onclick="goBack()">← 이전</button>
     </div>
   </div>
 
-  <!-- STEP 3: 결과 -->
+  <!-- STEP 3 -->
   <div class="hidden" id="step3">
-    <div class="notice-banner">
-      ⚠️ 본 정보는 2026년 기준으로 작성되었으며, 정책 변경에 따라 내용이 달라질 수 있습니다. 신청 전 각 기관에 반드시 확인하세요.
-    </div>
-    <div class="section-card">
-      <div class="result-header">
+    <div class="nb">⚠️ 본 정보는 2026년 기준으로 작성되었으며, 정책 변경에 따라 내용이 달라질 수 있습니다. 신청 전 각 기관에 반드시 확인하세요.</div>
+    <div class="sc">
+      <div class="rh">
         <div>
-          <div class="section-title" id="resultTitle">맞춤 정책자금 결과</div>
-          <div class="section-sub" id="resultSub">조건에 맞는 지원 사업입니다</div>
+          <div class="stl" id="rtl">맞춤 정책자금 결과</div>
+          <div class="ssub" id="rsub" style="margin-bottom:0">조건에 맞는 지원 사업입니다</div>
         </div>
-        <div class="result-count" id="resultCount">0개</div>
+        <div class="rc" id="rcnt">0개</div>
       </div>
-      <div id="resultList"></div>
+      <div id="rlist"></div>
     </div>
-
-    <div class="cta-box">
+    <div class="cta">
       <h3>신청 방법이 복잡하게 느껴지시나요?</h3>
       <p>22년 외식·프랜차이즈 전문가가 정책자금 신청부터 창업 전략까지 1:1로 도와드립니다</p>
-      <a href="https://open.kakao.com" class="cta-btn" target="_blank">무료 30분 상담 신청하기 →</a>
+      <a id="ctaBtn" href="#" class="cta-btn" target="_blank" rel="noopener">💬 무료 30분 상담 신청하기 →</a>
     </div>
-
-    <div class="btn-row" style="margin-top:16px">
-      <button class="btn-secondary" onclick="resetAll()">← 처음부터 다시</button>
-      <button class="btn-secondary" onclick="goBackToForm()">← 조건 수정</button>
+    <div class="br" style="margin-top:16px">
+      <button class="bs" onclick="resetAll()">← 처음부터 다시</button>
+      <button class="bs" onclick="goBackToForm()">← 조건 수정</button>
     </div>
   </div>
 
 </main>
 
 <script>
-// ── 데이터베이스 ──────────────────────────────────────────────
-const FUNDS = [
-  // ═══ 소상공인 ═══
-  {
-    id: 'f01',
-    name: '소상공인 일반경영안정자금',
-    org: '소상공인시장진흥공단 (소진공)',
-    type: '소상공인',
-    category: '융자',
-    amount: '최대 7천만원',
-    rate: '분기별 변동금리 (2026년 기준 공시)',
-    period: '운전자금 5년·시설자금 10년',
-    target: ['경영안정', '1년미만', '1~3년', '3년이상'],
-    industries: ['외식', '도소매', '서비스', '제조', '운수', '기타'],
-    desc: '민간금융 이용이 어려운 소상공인에게 시중은행 대비 저금리로 운영자금·시설자금을 지원합니다. 2026년에도 소진공 직접대출 및 은행 대리대출로 신청 가능하며, 금리 부담 완화를 위한 이자 환급 프로그램이 병행 운영됩니다.',
-    info: [
-      { label: '신청처', value: '소상공인24 (소진공 홈페이지)' },
-      { label: '신청방법', value: '온라인 또는 소진공 지역센터 방문' },
-      { label: '서류', value: '사업자등록증, 부가가치세 신고서 등' },
-    ],
-    links: [{ url: 'https://ols.semas.or.kr', label: '소상공인24 신청', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['저금리 융자', '운전·시설자금'],
-    badgeStyle: 'green',
-    cardType: 'a',
-  },
-  {
-    id: 'f02',
-    name: '소상공인 부담경감 크레딧',
-    org: '중소벤처기업부 · 소상공인시장진흥공단',
-    type: '소상공인',
-    category: '바우처',
-    amount: '최대 50만원',
-    rate: '무상 지원',
-    period: '연 1회',
-    target: ['경영안정', '1년미만', '1~3년', '3년이상'],
-    industries: ['외식', '도소매', '서비스', '제조', '운수', '기타'],
-    salesLimit: '3억이하',
-    desc: '연 매출 3억원 이하 소상공인에게 공과금·4대 보험료 납부 시 최대 50만원 크레딧(포인트)을 지원합니다. 2026년에도 별도 서류 없이 온라인에서 간편 신청 가능합니다.',
-    info: [
-      { label: '대상', value: '개업일 2026.1.1 이전, 연매출 3억 이하' },
-      { label: '신청방법', value: '온라인 신청 후 카드 등록' },
-      { label: '지원내용', value: '공과금·4대보험 결제 시 자동 차감' },
-    ],
-    links: [{ url: 'https://ols.semas.or.kr', label: '신청하기', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['무상 바우처', '간편 신청'],
-    badgeStyle: 'green',
-    cardType: 'a',
-  },
-  {
-    id: 'f03',
-    name: '배달비·택배비 지원',
-    org: '소상공인시장진흥공단',
-    type: '소상공인',
-    category: '보조금',
-    amount: '분기별 지원',
-    rate: '무상 지원',
-    period: '분기별 신청',
-    target: ['경영안정', '1~3년', '3년이상'],
-    industries: ['외식', '도소매', '서비스', '기타'],
-    salesLimit: '3억이하',
-    desc: '연 매출 3억원 이하 소상공인의 배달·택배 비용 일부를 정부가 지원합니다. 2026년에는 지원 플랫폼이 확대되어 주요 배달 앱 및 택배사 할인이 추가 적용됩니다.',
-    info: [
-      { label: '대상', value: '연매출 3억 이하 소상공인' },
-      { label: '신청기간', value: '분기별 공고 (소진공 홈페이지 확인)' },
-      { label: '2026 변경', value: '지원 배달 플랫폼 확대 (요기요·쿠팡이츠 포함)' },
-    ],
-    links: [{ url: 'https://www.semas.or.kr', label: '소진공 확인', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['외식업 추천', '무상 지원'],
-    badgeStyle: 'green',
-    cardType: 'a',
-  },
-  {
-    id: 'f04',
-    name: '에너지 비용 지원 (전기·가스요금)',
-    org: '소상공인시장진흥공단',
-    type: '소상공인',
-    category: '보조금',
-    amount: '최대 30만원',
-    rate: '무상 지원',
-    period: '연 1회',
-    target: ['경영안정', '1~3년', '3년이상'],
-    industries: ['외식', '도소매', '서비스', '제조', '기타'],
-    desc: '2025년 2월 15일 이전 개업한 소상공인 중 연 매출 1억400만원 이하인 경우 전기요금 최대 30만원을 지원합니다. 2026년부터 도시가스 요금 지원도 일부 포함됩니다.',
-    info: [
-      { label: '대상', value: '2025.2.15 이전 개업, 연매출 1억400만원 이하' },
-      { label: '신청방법', value: '소진공 홈페이지 온라인 신청' },
-      { label: '2026 변경', value: '지원금액 25만원 → 30만원 상향, 가스요금 포함' },
-    ],
-    links: [{ url: 'https://ols.semas.or.kr', label: '신청하기', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['에너지비용', '2026 상향'],
-    badgeStyle: 'warn',
-    cardType: 'warn',
-  },
-  {
-    id: 'f05',
-    name: '새출발기금 (채무조정)',
-    org: '금융위원회 · 한국자산관리공사',
-    type: '소상공인',
-    category: '채무조정',
-    amount: '최대 4억5천만원',
-    rate: '채무 감면·금리 조정',
-    period: '상시 신청',
-    target: ['채무'],
-    industries: ['외식', '도소매', '서비스', '제조', '운수', '기타'],
-    desc: '장기 연체·부실 소상공인의 채무를 조정하여 재기를 지원합니다. 2026년 지원 규모가 50조원 이상으로 확대되었으며, 코로나19 이후 연체가 누적된 소상공인도 추가 지원 대상에 포함됩니다.',
-    info: [
-      { label: '대상', value: '연체·부실 소상공인 (폐업자 포함)' },
-      { label: '신청처', value: '새출발기금 전용 홈페이지' },
-      { label: '지원내용', value: '원금 감면, 금리 인하, 상환기간 연장' },
-    ],
-    links: [{ url: 'https://newstart.kamco.or.kr', label: '새출발기금 신청', type: 'apply' }],
-    phone: '1600-1516',
-    badges: ['채무조정', '재기 지원'],
-    badgeStyle: 'warn',
-    cardType: 'warn',
-  },
-  {
-    id: 'f06',
-    name: '청년고용연계자금',
-    org: '소상공인시장진흥공단',
-    type: '소상공인',
-    category: '융자',
-    amount: '최대 1억원',
-    rate: '우대금리 적용',
-    period: '연간 신청',
-    target: ['청년고용'],
-    industries: ['외식', '도소매', '서비스', '제조', '운수', '기타'],
-    desc: '만 39세 이하 청년 소상공인이거나, 청년 근로자를 1명 이상 고용한 소상공인에게 우대금리로 정책자금을 지원합니다. 2026년부터 청년 고용 시 금리 추가 인하 혜택이 적용됩니다.',
-    info: [
-      { label: '대상', value: '만 39세 이하 청년 OR 청년 직원 과반 고용' },
-      { label: '사업연차', value: '3년 미만 청년 소상공인 우선' },
-      { label: '2026 혜택', value: '청년 1인 추가 고용 시 0.5%p 금리 추가 인하' },
-    ],
-    links: [{ url: 'https://ols.semas.or.kr', label: '소상공인24 신청', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['청년 우대', '금리 혜택'],
-    badgeStyle: 'blue',
-    cardType: 'c',
-  },
-  {
-    id: 'f07',
-    name: '노란우산공제',
-    org: '중소기업중앙회',
-    type: '소상공인',
-    category: '공제',
-    amount: '소득공제 최대 600만원',
-    rate: '연 복리 이자 적용',
-    period: '상시 가입',
-    target: ['경영안정', '성장', '1년미만', '1~3년', '3년이상'],
-    industries: ['외식', '도소매', '서비스', '제조', '운수', '기타'],
-    desc: '소상공인·자영업자의 폐업·노령·사망 등 생활안정을 위한 공제제도입니다. 납입 부금에 대해 연소득 4천만원 이하는 최대 600만원 소득공제 혜택이 있으며, 2026년 이자율이 소폭 개선되었습니다.',
-    info: [
-      { label: '소득공제', value: '4천만원 이하 600만원, 1억원 이하 400만원' },
-      { label: '납부금', value: '월 5만~100만원 자유 선택' },
-      { label: '수령', value: '폐업·사망·노령 시 공제금 수령' },
-    ],
-    links: [{ url: 'https://www.8899.or.kr', label: '노란우산 가입', type: 'apply' }],
-    phone: '1666-9988',
-    badges: ['세금 절약', '소득공제'],
-    badgeStyle: 'brown',
-    cardType: 'b',
-  },
-  {
-    id: 'f08',
-    name: '소상공인 AI·디지털 활용 교육',
-    org: '소상공인시장진흥공단 (네이버·카카오·쿠팡 연계)',
-    type: '소상공인',
-    category: '교육',
-    amount: '무료 교육',
-    rate: '무상',
-    period: '2026년 상시 모집',
-    target: ['경영안정', '성장'],
-    industries: ['외식', '도소매', '서비스', '제조', '기타'],
-    desc: '2026년에는 AI 마케팅·챗봇 활용 교육이 확대되었습니다. 네이버 플레이스 AI 광고, 카카오 채널 AI 응대, 쿠팡 입점 교육 등 소상공인 맞춤 디지털 역량 교육을 무료로 제공합니다.',
-    info: [
-      { label: '교육내용', value: 'AI 챗봇·마케팅, 온라인 판매, SNS 활용' },
-      { label: '2026 신규', value: '생성형 AI 활용 홍보물 제작 과정 추가' },
-      { label: '신청', value: '소진공 홈페이지 공고 확인 후 신청' },
-    ],
-    links: [{ url: 'https://www.semas.or.kr', label: '교육 신청', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['무료 교육', 'AI 활용'],
-    badgeStyle: 'blue',
-    cardType: 'c',
-  },
-  {
-    id: 'f09',
-    name: '소상공인 전용 저금리 신용카드',
-    org: '금융위원회 · 카드사',
-    type: '소상공인',
-    category: '금융',
-    amount: '한도 최대 1천만원',
-    rate: '6개월 무이자 할부',
-    period: '상시 신청',
-    target: ['경영안정'],
-    industries: ['외식', '도소매', '서비스', '제조', '기타'],
-    desc: '신용점수 595~839점(NICE)의 소상공인도 신청 가능한 전용 신용카드입니다. 최대 1천만원 한도, 6개월 무이자 할부, 3% 캐시백(최대 10만원) 혜택이 있습니다.',
-    info: [
-      { label: '신용점수', value: 'NICE 595~839점 신청 가능' },
-      { label: '혜택', value: '6개월 무이자, 3% 캐시백 (최대 10만원)' },
-    ],
-    links: [{ url: 'https://www.gov.kr', label: '정부24 확인', type: 'apply' }],
-    phone: '1557-9000',
-    badges: ['저신용 가능', '무이자 할부'],
-    badgeStyle: 'warn',
-    cardType: 'warn',
-  },
-  {
-    id: 'f10',
-    name: '소상공인 정책자금 상환연장',
-    org: '소상공인시장진흥공단',
-    type: '소상공인',
-    category: '상환연장',
-    amount: '기존 대출 연장',
-    rate: '기존 금리 유지',
-    period: '상시 신청',
-    target: ['채무', '경영안정'],
-    industries: ['외식', '도소매', '서비스', '제조', '운수', '기타'],
-    desc: '소진공 직접대출을 이용 중인 소상공인의 원리금 상환 부담을 완화하기 위해 상환기간을 연장해 드립니다. 2026년에는 연체 이력 보유자도 조건 충족 시 신청 가능 범위가 확대되었습니다.',
-    info: [
-      { label: '대상', value: '소진공 직접대출 이용 소상공인' },
-      { label: '신청방법', value: '소진공 지역센터 방문 또는 온라인' },
-      { label: '2026 변경', value: '연체 이력 소상공인 상환 유예 기간 확대' },
-    ],
-    links: [{ url: 'https://ols.semas.or.kr', label: '신청하기', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['상환 연장', '부담 완화'],
-    badgeStyle: 'warn',
-    cardType: 'warn',
-  },
-  {
-    id: 'f21',
-    name: '소상공인 스마트상점 기술보급',
-    org: '중소벤처기업부 · 소상공인시장진흥공단',
-    type: '소상공인',
-    category: '디지털전환',
-    amount: '최대 500만원',
-    rate: '90% 정부 보조',
-    period: '2026년 상반기 모집',
-    target: ['성장', '경영안정'],
-    industries: ['외식', '도소매', '서비스', '기타'],
-    desc: '2026년 신규 확대 사업으로, 소상공인 점포에 키오스크·스마트오더·테이블오더·AI 추천 시스템 등 스마트 기기 도입 비용을 최대 500만원(90% 보조) 지원합니다.',
-    info: [
-      { label: '지원내용', value: '키오스크, 스마트오더, AI 추천 시스템 등' },
-      { label: '자부담', value: '도입 비용의 10% (최대 50만원)' },
-      { label: '신청', value: '소진공 홈페이지 공고 확인 후 신청' },
-    ],
-    links: [{ url: 'https://www.semas.or.kr', label: '소진공 신청', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['2026 신규', '디지털 전환'],
-    badgeStyle: 'blue',
-    cardType: 'c',
-  },
-
-  // ═══ 예비창업자 ═══
-  {
-    id: 'f11',
-    name: '청년창업사관학교',
-    org: '중소벤처기업진흥공단',
-    type: '예비창업자',
-    category: '창업지원',
-    amount: '1억원 내외 (교육+자금)',
-    rate: '무상 지원',
-    period: '연 1회 모집 (상반기)',
-    ageTarget: '39이하',
-    desc: '만 39세 이하 예비창업자에게 창업 교육, 멘토링, 사무공간, 시제품 제작비를 지원합니다. 2026년에는 AI 창업 분야 트랙이 신설되어 IT 기술 기반 창업자를 우대합니다.',
-    info: [
-      { label: '대상', value: '만 39세 이하 예비창업자' },
-      { label: '지원', value: '최대 1억원 창업자금 + 교육 + 공간' },
-      { label: '2026 신설', value: 'AI·바이오 등 딥테크 창업 우대 트랙' },
-    ],
-    links: [{ url: 'https://www.k-startup.go.kr', label: '창업지원포털', type: 'apply' }],
-    phone: '1357',
-    badges: ['청년 전용', '교육+자금'],
-    badgeStyle: 'blue',
-    cardType: 'c',
-  },
-  {
-    id: 'f12',
-    name: '소상공인 예비창업 패키지',
-    org: '소상공인시장진흥공단',
-    type: '예비창업자',
-    category: '창업지원',
-    amount: '교육 무료 + 컨설팅',
-    rate: '무상',
-    period: '연 2회 모집',
-    fundIndustries: ['외식', '도소매', '서비스', '기타'],
-    desc: '외식업 등 소상공인 업종으로 창업을 준비하는 분에게 맞춤형 창업 교육, 상권 분석, 점포 개발 컨설팅을 무료로 제공합니다. 2026년부터 온라인 창업 과정도 추가됩니다.',
-    info: [
-      { label: '교육내용', value: '창업 준비부터 오픈까지 단계별 교육' },
-      { label: '컨설팅', value: '상권분석, 점포개발, 사업계획 수립' },
-      { label: '2026 추가', value: '온라인·배달 창업 특화 과정 신설' },
-    ],
-    links: [{ url: 'https://www.semas.or.kr', label: '소진공 신청', type: 'apply' }],
-    phone: '1533-0100',
-    badges: ['창업 교육', '컨설팅 포함'],
-    badgeStyle: 'green',
-    cardType: 'a',
-  },
-  {
-    id: 'f13',
-    name: '중소기업 창업 정책자금',
-    org: '중소벤처기업진흥공단 (중진공)',
-    type: '예비창업자',
-    category: '융자',
-    amount: '최대 10억원',
-    rate: '정책금리 (시중 대비 저금리)',
-    period: '상시 신청',
-    desc: '창업 초기 중소기업·소상공인에게 시설자금·운전자금을 지원합니다. 사업성이 있으면 신용도가 낮아도 신청 가능하며, 창업 7년 이내 기업이 대상입니다. 2026년에는 그린·친환경 창업 기업에 금리 우대를 신설했습니다.',
-    info: [
-      { label: '대상', value: '창업 7년 이내 중소기업·소상공인' },
-      { label: '한도', value: '시설자금 최대 10억, 운전자금 별도' },
-      { label: '신청처', value: '중진공 지역본부 또는 온라인' },
-    ],
-    links: [{ url: 'https://www.kosmes.or.kr', label: '중진공 신청', type: 'apply' }],
-    phone: '1811-3655',
-    badges: ['창업자금', '저금리'],
-    badgeStyle: 'green',
-    cardType: 'a',
-  },
-  {
-    id: 'f14',
-    name: '신용보증기금 창업기업 보증',
-    org: '신용보증기금',
-    type: '예비창업자',
-    category: '보증',
-    amount: '보증서 발급 → 대출',
-    rate: '보증료 연 0.5~2%',
-    period: '상시 신청',
-    desc: '신용점수나 담보가 부족해도 사업성이 있으면 신용보증기금에서 보증서를 발급받아 은행 대출이 가능합니다. 2026년에는 소셜벤처·사회적기업 창업자에 대한 보증 비율이 우대됩니다.',
-    info: [
-      { label: '장점', value: '담보 없이 대출 가능 (사업성 평가)' },
-      { label: '보증한도', value: '최대 5억~10억원' },
-      { label: '신청처', value: '신보 지점 또는 은행 창구' },
-    ],
-    links: [{ url: 'https://www.kodit.co.kr', label: '신보 홈페이지', type: 'apply' }],
-    phone: '1588-6565',
-    badges: ['담보 불필요', '사업성 평가'],
-    badgeStyle: 'brown',
-    cardType: 'b',
-  },
-
-  // ═══ 일반인 ═══
-  {
-    id: 'f15',
-    name: '청년도약계좌',
-    org: '금융위원회',
-    type: '일반인',
-    category: '자산형성',
-    amount: '최대 5천만원 목돈',
-    rate: '정부 기여금 + 비과세',
-    period: '상시 가입',
-    ageTarget: '청년',
-    desc: '만 19~34세 청년이 월 40~70만원 저축 시 정부가 기여금을 지원하고, 5년 후 최대 5천만원 목돈을 마련할 수 있습니다. 2026년에는 중도 해지 후 재가입 요건이 완화되어 더 많은 청년이 혜택을 받을 수 있습니다.',
-    info: [
-      { label: '대상', value: '만 19~34세, 개인소득 7,500만원 이하' },
-      { label: '납입', value: '월 최대 70만원, 5년 만기' },
-      { label: '2026 변경', value: '중도 해지 후 재가입 요건 완화' },
-    ],
-    links: [{ url: 'https://www.kinfa.or.kr', label: '가입 은행 확인', type: 'apply' }],
-    phone: '1332',
-    badges: ['청년 전용', '비과세'],
-    badgeStyle: 'blue',
-    cardType: 'c',
-  },
-  {
-    id: 'f16',
-    name: '국민취업지원제도',
-    org: '고용노동부',
-    type: '일반인',
-    category: '취업지원',
-    amount: '월 최대 55만원',
-    rate: '무상 지원',
-    period: '상시 신청',
-    supportType: '취업',
-    specialTarget: ['장애인', '한부모', '새터민', '다자녀'],
-    desc: '취업을 희망하는 15~69세 국민에게 취업 지원 서비스와 함께 구직촉진수당을 지원합니다. 2026년부터 구직촉진수당이 월 50만원에서 월 55만원으로 인상되었습니다.',
-    info: [
-      { label: '수당', value: '월 55만원 × 최대 6개월 (2026년 인상)' },
-      { label: '서비스', value: '직업훈련, 취업알선, 심리상담' },
-      { label: '신청처', value: '고용센터 또는 워크넷' },
-    ],
-    links: [{ url: 'https://www.kua.go.kr', label: '국민취업지원 신청', type: 'apply' }],
-    phone: '1350',
-    badges: ['취업 수당', '2026 인상'],
-    badgeStyle: 'green',
-    cardType: 'a',
-  },
-  {
-    id: 'f17',
-    name: '청년 전·월세 보증금 대출',
-    org: '주택도시기금',
-    type: '일반인',
-    category: '주거',
-    amount: '최대 1억원',
-    rate: '연 1.2~2.4%',
-    period: '상시 신청',
-    ageTarget: '청년',
-    supportType: '주거',
-    specialTarget: ['장애인', '한부모'],
-    desc: '만 34세 이하 청년에게 전·월세 보증금을 저금리로 지원합니다. 2026년에는 금리가 소폭 인하되고, 독립 초기 청년을 위한 우대 금리 트랙이 신설되었습니다.',
-    info: [
-      { label: '대상', value: '만 34세 이하, 연소득 5천만원 이하' },
-      { label: '한도', value: '보증금의 90% 이내, 최대 1억원' },
-      { label: '2026 변경', value: '금리 인하 (최저 1.2%), 독립 청년 우대 트랙' },
-    ],
-    links: [{ url: 'https://nhuf.molit.go.kr', label: '주택도시기금', type: 'apply' }],
-    phone: '1566-9009',
-    badges: ['저금리', '청년 주거'],
-    badgeStyle: 'blue',
-    cardType: 'c',
-  },
-  {
-    id: 'f18',
-    name: '근로장려금 (EITC)',
-    org: '국세청',
-    type: '일반인',
-    category: '생활지원',
-    amount: '최대 335만원',
-    rate: '무상 지원',
-    period: '연 1회 신청 (5월)',
-    supportType: '생활',
-    incomeTarget: ['저소득'],
-    specialTarget: ['장애인', '한부모', '다자녀'],
-    desc: '일하는 저소득 가구에게 현금을 지원합니다. 2026년 기준 단독 가구 최대 165만원, 홑벌이 가구 최대 295만원, 맞벌이 가구 최대 335만원으로 지원 금액이 상향되었습니다.',
-    info: [
-      { label: '2026 지급액', value: '단독 165만원, 홑벌이 295만원, 맞벌이 335만원' },
-      { label: '신청기간', value: '매년 5월 (정기 신청)' },
-      { label: '신청처', value: '홈택스 또는 세무서' },
-    ],
-    links: [{ url: 'https://www.hometax.go.kr', label: '홈택스 신청', type: 'apply' }],
-    phone: '126',
-    badges: ['현금 지원', '2026 인상'],
-    badgeStyle: 'warn',
-    cardType: 'warn',
-  },
-  {
-    id: 'f19',
-    name: '국민내일배움카드',
-    org: '고용노동부·한국고용정보원',
-    type: '일반인',
-    category: '교육',
-    amount: '최대 500만원',
-    rate: '무상 (자부담 15~55%)',
-    period: '상시 신청',
-    supportType: '교육',
-    specialTarget: ['장애인'],
-    desc: '5년간 300~500만원 한도에서 직업훈련비를 지원합니다. 2026년에는 생성형 AI 활용, 클라우드, 데이터 분석 등 신기술 과정이 대폭 확대되었습니다.',
-    info: [
-      { label: '한도', value: '5년 300만원 (일부 500만원)' },
-      { label: '자부담', value: '15~55% (저소득층 감면)' },
-      { label: '2026 확대', value: '생성형 AI·클라우드·데이터 훈련 과정 확대' },
-    ],
-    links: [{ url: 'https://www.hrd.go.kr', label: 'HRD-Net 신청', type: 'apply' }],
-    phone: '1350',
-    badges: ['직업훈련', 'AI 과정 확대'],
-    badgeStyle: 'green',
-    cardType: 'a',
-  },
-  {
-    id: 'f20',
-    name: '긴급복지 생계지원금',
-    org: '보건복지부',
-    type: '일반인',
-    category: '복지',
-    amount: '최대 월 183만원',
-    rate: '무상 지원',
-    period: '상시 신청 (위기 상황 시)',
-    supportType: '복지',
-    incomeTarget: ['기초', '저소득'],
-    specialTarget: ['장애인', '한부모', '다자녀', '새터민'],
-    desc: '갑작스러운 위기 상황(실직·질병·재난 등)으로 생계 유지가 어려운 가구에게 긴급으로 생계비를 지원합니다. 2026년 중위소득 기준 인상에 따라 4인 가구 기준 최대 월 183만원으로 상향되었습니다.',
-    info: [
-      { label: '2026 지급액', value: '4인 가구 기준 최대 월 183만원 (중위소득 반영)' },
-      { label: '지원', value: '생계·의료·주거비 등 복합 지원' },
-      { label: '신청처', value: '읍면동 주민센터' },
-    ],
-    links: [{ url: 'https://www.bokjiro.go.kr', label: '복지로 신청', type: 'apply' }],
-    phone: '129',
-    badges: ['긴급 지원', '2026 인상'],
-    badgeStyle: 'warn',
-    cardType: 'warn',
-  },
-  {
-    id: 'f22',
-    name: '청년내일저축계좌',
-    org: '보건복지부 · 서민금융진흥원',
-    type: '일반인',
-    category: '자산형성',
-    amount: '최대 1440만원 목돈',
-    rate: '정부 적립금 월 최대 30만원',
-    period: '상시 신청',
-    ageTarget: '청년',
-    supportType: '생활',
-    incomeTarget: ['기초', '저소득'],
-    specialTarget: ['한부모', '다자녀'],
-    desc: '소득이 있는 저소득 청년(만 15~34세)이 월 10만원을 저축하면 정부가 10~30만원을 추가 적립합니다. 3년 만기 시 최대 1,440만원의 목돈 마련이 가능하며, 2026년 지원 대상 인원이 확대되었습니다.',
-    info: [
-      { label: '대상', value: '만 15~34세, 근로·사업소득 있는 저소득 청년' },
-      { label: '납입', value: '월 10만원 × 36개월 (3년 만기)' },
-      { label: '정부 적립', value: '기초수급자 월 30만원, 차상위 이하 월 10만원' },
-    ],
-    links: [{ url: 'https://www.bokjiro.go.kr', label: '복지로 신청', type: 'apply' }],
-    phone: '129',
-    badges: ['저소득 청년', '자산형성'],
-    badgeStyle: 'green',
-    cardType: 'a',
-  },
+const FUNDS=[
+  {id:'f01',name:'소상공인 일반경영안정자금',org:'소상공인시장진흥공단 (소진공)',type:'소상공인',cat:'융자',amount:'최대 7천만원',rate:'저금리',target:['경영안정','성장'],ind:['외식','도소매','서비스','제조','운수','기타'],desc:'민간금융 이용이 어려운 소상공인에게 저금리로 운영자금·시설자금을 지원합니다. 소진공 직접대출 또는 은행 대리대출로 신청 가능합니다.',info:[{l:'신청처',v:'소상공인24 (소진공 홈페이지)'},{l:'신청방법',v:'온라인 또는 소진공 지역센터'},{l:'서류',v:'사업자등록증, 부가가치세 신고서'}],links:[{url:'https://ols.semas.or.kr',lbl:'소상공인24 신청'}],ph:'1533-0100',badges:['저금리 융자','운전·시설자금'],bs:'g',ct:'a'},
+  {id:'f02',name:'소상공인 부담경감 크레딧',org:'중소벤처기업부·소진공',type:'소상공인',cat:'바우처',amount:'최대 50만원',rate:'무상 지원',target:['경영안정'],ind:['외식','도소매','서비스','제조','운수','기타'],sl:'3억이하',desc:'연 매출 3억원 이하 소상공인에게 공과금·4대보험료 납부 시 최대 50만원 크레딧을 지원합니다.',info:[{l:'대상',v:'개업일 2025.5.1 이전, 연매출 3억 이하'},{l:'신청방법',v:'온라인 신청 후 카드 등록'}],links:[{url:'https://ols.semas.or.kr',lbl:'신청하기'}],ph:'1533-0100',badges:['무상 바우처','간편 신청'],bs:'g',ct:'a'},
+  {id:'f03',name:'배달비·택배비 지원',org:'소상공인시장진흥공단',type:'소상공인',cat:'보조금',amount:'분기별 지원',rate:'무상',target:['경영안정'],ind:['외식','도소매','서비스','기타'],sl:'3억이하',desc:'연 매출 3억원 이하 소상공인의 배달·택배 비용 일부를 지원합니다. 외식업 소상공인에게 특히 유용합니다.',info:[{l:'대상',v:'연매출 3억 이하 소상공인'},{l:'신청기간',v:'분기별 공고 확인'}],links:[{url:'https://www.semas.or.kr',lbl:'소진공 확인'}],ph:'1533-0100',badges:['외식업 추천','무상 지원'],bs:'g',ct:'a'},
+  {id:'f04',name:'전기요금 지원',org:'소상공인시장진흥공단',type:'소상공인',cat:'보조금',amount:'최대 25만원',rate:'무상',target:['경영안정'],ind:['외식','도소매','서비스','제조','기타'],desc:'2024년 2월 15일 이전 개업, 연매출 1억400만원 이하 소상공인에게 전기요금 최대 25만원을 지원합니다.',info:[{l:'대상',v:'2024.2.15 이전 개업, 연매출 1억400만원 이하'},{l:'신청',v:'소진공 홈페이지 온라인'}],links:[{url:'https://ols.semas.or.kr',lbl:'신청하기'}],ph:'1533-0100',badges:['에너지비용','즉시 신청'],bs:'w',ct:'warn'},
+  {id:'f05',name:'새출발기금 (채무조정)',org:'금융위원회·한국자산관리공사',type:'소상공인',cat:'채무조정',amount:'최대 4억5천만원',rate:'채무 감면·금리 조정',target:['채무'],ind:['외식','도소매','서비스','제조','운수','기타'],desc:'장기 연체·부실 소상공인의 채무를 조정하여 재기를 지원합니다. 2025년 지원 규모가 40조원 이상으로 확대되었습니다.',info:[{l:'대상',v:'연체·부실 소상공인 (폐업자 포함)'},{l:'지원',v:'원금 감면, 금리 인하, 상환기간 연장'}],links:[{url:'https://newstart.kamco.or.kr',lbl:'새출발기금 신청'}],ph:'1600-1516',badges:['채무조정','재기 지원'],bs:'w',ct:'warn'},
+  {id:'f06',name:'청년고용연계자금',org:'소상공인시장진흥공단',type:'소상공인',cat:'융자',amount:'최대 1억원',rate:'우대금리',target:['청년고용'],ind:['외식','도소매','서비스','제조','운수','기타'],desc:'만 39세 이하 청년 소상공인이거나 청년 근로자를 고용한 소상공인에게 우대금리로 자금을 지원합니다.',info:[{l:'대상',v:'청년 소상공인 OR 청년 직원 고용'},{l:'우대',v:'금리 인하 혜택 적용'}],links:[{url:'https://ols.semas.or.kr',lbl:'소상공인24 신청'}],ph:'1533-0100',badges:['청년 우대','금리 혜택'],bs:'b',ct:'c'},
+  {id:'f07',name:'노란우산공제',org:'중소기업중앙회',type:'소상공인',cat:'공제',amount:'소득공제 최대 600만원',rate:'연 복리 이자',target:['경영안정','성장'],ind:['외식','도소매','서비스','제조','운수','기타'],desc:'소상공인의 폐업·노령·사망 대비 공제제도입니다. 연소득 4천만원 이하는 최대 600만원 소득공제 혜택이 있습니다.',info:[{l:'소득공제',v:'4천만원 이하 600만원'},{l:'납부금',v:'월 5만~100만원 자유 선택'}],links:[{url:'https://www.8899.or.kr',lbl:'노란우산 가입'}],ph:'1666-9988',badges:['세금 절약','소득공제'],bs:'br',ct:'b'},
+  {id:'f08',name:'소상공인 AI활용 교육',org:'소상공인시장진흥공단',type:'소상공인',cat:'교육',amount:'무료 교육',rate:'무상',target:['경영안정','성장'],ind:['외식','도소매','서비스','제조','기타'],desc:'네이버·카카오 연계 AI 마케팅, SNS 운영, 온라인 판매 무료 교육 프로그램입니다.',info:[{l:'교육내용',v:'AI 마케팅, SNS 활용, 온라인 판매'},{l:'신청',v:'소진공 홈페이지 공고 확인'}],links:[{url:'https://www.semas.or.kr',lbl:'교육 신청'}],ph:'1533-0100',badges:['무료 교육','AI 활용'],bs:'b',ct:'c'},
+  {id:'f09',name:'소상공인 저금리 신용카드',org:'금융위원회·카드사',type:'소상공인',cat:'금융',amount:'한도 최대 1천만원',rate:'6개월 무이자',target:['경영안정'],ind:['외식','도소매','서비스','제조','기타'],desc:'신용점수 595~839점(NICE) 소상공인도 신청 가능한 전용 카드. 6개월 무이자 할부, 3% 캐시백 혜택.',info:[{l:'신용점수',v:'NICE 595~839점 가능'},{l:'혜택',v:'6개월 무이자, 3% 캐시백'}],links:[{url:'https://www.gov.kr',lbl:'정부24 확인'}],ph:'1557-9000',badges:['저신용 가능','무이자 할부'],bs:'w',ct:'warn'},
+  {id:'f10',name:'정책자금 상환연장',org:'소상공인시장진흥공단',type:'소상공인',cat:'상환연장',amount:'기존 대출 연장',rate:'기존 금리 유지',target:['채무','경영안정'],ind:['외식','도소매','서비스','제조','운수','기타'],desc:'소진공 직접대출 이용 소상공인의 원리금 상환 기간을 연장해 드립니다.',info:[{l:'대상',v:'소진공 직접대출 이용 소상공인'},{l:'신청',v:'소진공 지역센터 또는 온라인'}],links:[{url:'https://ols.semas.or.kr',lbl:'신청하기'}],ph:'1533-0100',badges:['상환 연장','부담 완화'],bs:'w',ct:'warn'},
+  {id:'f11',name:'청년창업사관학교',org:'중소벤처기업진흥공단',type:'예비창업자',cat:'창업지원',amount:'1억원 내외',rate:'무상',ageTarget:'39이하',desc:'만 39세 이하 예비창업자에게 교육, 멘토링, 사무공간, 시제품 제작비를 지원합니다.',info:[{l:'대상',v:'만 39세 이하 예비창업자'},{l:'지원',v:'최대 1억원+교육+공간'},{l:'경쟁률',v:'높음 (사업계획서 필수)'}],links:[{url:'https://www.k-startup.go.kr',lbl:'창업지원포털'}],ph:'1357',badges:['청년 전용','교육+자금'],bs:'b',ct:'c'},
+  {id:'f12',name:'소상공인 예비창업 패키지',org:'소상공인시장진흥공단',type:'예비창업자',cat:'창업지원',amount:'무료 교육+컨설팅',rate:'무상',desc:'소상공인 업종 예비창업자에게 맞춤 교육, 상권 분석, 점포 개발 컨설팅을 무료로 제공합니다.',info:[{l:'교육',v:'창업 단계별 교육'},{l:'컨설팅',v:'상권분석·사업계획 수립'}],links:[{url:'https://www.semas.or.kr',lbl:'소진공 신청'}],ph:'1533-0100',badges:['창업 교육','컨설팅 포함'],bs:'g',ct:'a'},
+  {id:'f13',name:'중소기업 창업 정책자금',org:'중소벤처기업진흥공단',type:'예비창업자',cat:'융자',amount:'최대 10억원',rate:'정책금리 저금리',desc:'창업 초기 기업에 시설자금·운전자금을 저금리로 지원합니다. 창업 7년 이내 기업 대상.',info:[{l:'대상',v:'창업 7년 이내'},{l:'한도',v:'시설자금 최대 10억'}],links:[{url:'https://www.kosmes.or.kr',lbl:'중진공 신청'}],ph:'1811-3655',badges:['창업자금','저금리'],bs:'g',ct:'a'},
+  {id:'f14',name:'신용보증기금 창업기업 보증',org:'신용보증기금',type:'예비창업자',cat:'보증',amount:'보증서→대출',rate:'보증료 연 0.5~2%',desc:'담보 없이 사업성으로 보증서를 발급받아 은행 대출이 가능합니다. 창업 예정자도 신청 가능합니다.',info:[{l:'장점',v:'담보 없이 대출 가능'},{l:'한도',v:'최대 5~10억원'}],links:[{url:'https://www.kodit.co.kr',lbl:'신보 홈페이지'}],ph:'1588-6565',badges:['담보 불필요','사업성 평가'],bs:'br',ct:'b'},
+  {id:'f15',name:'청년도약계좌',org:'금융위원회',type:'일반인',cat:'자산형성',amount:'최대 5천만원',rate:'정부기여금+비과세',ageTarget:'청년',desc:'만 19~34세 청년이 5년간 저축 시 정부 기여금과 비과세 혜택으로 최대 5천만원 목돈을 마련할 수 있습니다.',info:[{l:'대상',v:'만 19~34세, 소득 7,500만원 이하'},{l:'납입',v:'월 최대 70만원, 5년 만기'}],links:[{url:'https://www.kinfa.or.kr',lbl:'가입 은행 확인'}],ph:'1332',badges:['청년 전용','비과세'],bs:'b',ct:'c'},
+  {id:'f16',name:'국민취업지원제도',org:'고용노동부',type:'일반인',cat:'취업지원',amount:'월 최대 50만원',rate:'무상',supportType:'취업',desc:'취업 희망 15~69세 국민에게 구직촉진수당(월 50만원 × 6개월)과 취업 서비스를 지원합니다.',info:[{l:'수당',v:'월 50만원 × 최대 6개월'},{l:'서비스',v:'직업훈련, 취업알선'}],links:[{url:'https://www.kua.go.kr',lbl:'국민취업지원 신청'}],ph:'1350',badges:['취업 수당','구직 지원'],bs:'g',ct:'a'},
+  {id:'f17',name:'청년 전·월세 보증금 대출',org:'주택도시기금',type:'일반인',cat:'주거',amount:'최대 1억원',rate:'연 1.5~2.7%',ageTarget:'청년',supportType:'주거',desc:'만 34세 이하 청년에게 전·월세 보증금을 저금리로 지원합니다.',info:[{l:'대상',v:'만 34세 이하, 연소득 5천만원 이하'},{l:'한도',v:'보증금의 90%, 최대 1억원'}],links:[{url:'https://nhuf.molit.go.kr',lbl:'주택도시기금'}],ph:'1566-9009',badges:['저금리','청년 주거'],bs:'b',ct:'c'},
+  {id:'f18',name:'근로장려금 (EITC)',org:'국세청',type:'일반인',cat:'생활지원',amount:'최대 330만원',rate:'무상',supportType:'생활',incomeTarget:['저소득'],desc:'일하는 저소득 가구에게 현금을 지원합니다. 맞벌이 가구 최대 330만원.',info:[{l:'대상',v:'저소득 근로자·사업자'},{l:'신청기간',v:'매년 5월 정기 신청'}],links:[{url:'https://www.hometax.go.kr',lbl:'홈택스 신청'}],ph:'126',badges:['현금 지원','연 1회'],bs:'w',ct:'warn'},
+  {id:'f19',name:'국민내일배움카드',org:'고용노동부',type:'일반인',cat:'교육',amount:'최대 500만원',rate:'자부담 15~55%',supportType:'교육',desc:'5년간 300~500만원 한도에서 직업훈련비를 지원합니다. AI·디지털 과정도 포함됩니다.',info:[{l:'한도',v:'5년 300만원 (일부 500만원)'},{l:'자부담',v:'15~55% (저소득층 감면)'}],links:[{url:'https://www.hrd.go.kr',lbl:'HRD-Net 신청'}],ph:'1350',badges:['직업훈련','AI 과정 포함'],bs:'g',ct:'a'},
+  {id:'f20',name:'긴급복지 생계지원금',org:'보건복지부',type:'일반인',cat:'복지',amount:'최대 월 162만원',rate:'무상',supportType:'복지',incomeTarget:['기초','저소득'],desc:'갑작스러운 위기 상황으로 생계 유지가 어려운 가구에게 긴급 생계비를 지원합니다.',info:[{l:'대상',v:'위기상황 발생 가구'},{l:'신청처',v:'읍면동 주민센터'}],links:[{url:'https://www.bokjiro.go.kr',lbl:'복지로 신청'}],ph:'129',badges:['긴급 지원','복지로'],bs:'w',ct:'warn'},
 ];
 
-// ── 상태 ──────────────────────────────────────────────────────
-let selectedType = null;
+const bmap={g:'fg2',br:'fb2',b:'fb3',w:'fbw',gray:'fbg'};
+let selType=null;
+let kLink=localStorage.getItem('kLink')||'';
 
-// ── 유형 선택 ──────────────────────────────────────────────────
-function selectType(type, el) {
-  selectedType = type;
-  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
+(function init(){
+  if(kLink){document.getElementById('kakaoInput').value=kLink;setCtaLink(kLink);}
+  else{setCtaNoLink();}
+})();
 
-  // 0.3초 뒤 step2로
-  setTimeout(() => {
-    document.getElementById('step1').style.display = 'none';
-    document.getElementById('step2').classList.remove('hidden');
-    // 폼 전환
-    ['소상공인','예비창업자','일반인'].forEach(t => {
-      const f = document.getElementById('form' + t);
-      if (f) f.classList.add('hidden');
-    });
-    const activeForm = document.getElementById('form' + type);
-    if (activeForm) activeForm.classList.remove('hidden');
-    // 스텝 업데이트
-    updateStep(2);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 300);
+function setCtaLink(url){
+  const b=document.getElementById('ctaBtn');
+  b.href=url;b.onclick=null;
+}
+function setCtaNoLink(){
+  const b=document.getElementById('ctaBtn');
+  b.href='#';
+  b.onclick=function(e){e.preventDefault();alert('관리자 설정에서 카카오 오픈채팅 링크를 먼저 등록해 주세요.');};
+}
+function saveLink(){
+  const v=document.getElementById('kakaoInput').value.trim();
+  if(!v||(!v.startsWith('http://') && !v.startsWith('https://'))){alert('올바른 URL을 입력해 주세요 (https://로 시작)');return;}
+  kLink=v;localStorage.setItem('kLink',v);setCtaLink(v);
+  document.getElementById('spanel').removeAttribute('open');
+  alert('✅ 카카오 링크가 저장되었습니다!');
 }
 
-// ── 결과 출력 ──────────────────────────────────────────────────
-function showResults() {
-  const list = document.getElementById('resultList');
-  list.innerHTML = '';
+function syncCb(cb){cb.closest('.cbi').classList.toggle('checked',cb.checked);}
 
-  let matches = FUNDS.filter(f => f.type === selectedType);
+function selectType(type,el){
+  selType=type;
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  setTimeout(()=>{
+    document.getElementById('step1').style.display='none';
+    document.getElementById('step2').classList.remove('hidden');
+    ['소상공인','예비창업자','일반인'].forEach(t=>{const f=document.getElementById('f'+t);if(f)f.classList.add('hidden');});
+    document.getElementById('f'+type).classList.remove('hidden');
+    updateStep(2);window.scrollTo({top:0,behavior:'smooth'});
+  },250);
+}
 
-  // 소상공인 필터
-  if (selectedType === '소상공인') {
-    const 업종 = document.getElementById('업종')?.value;
-    const 매출 = document.getElementById('매출')?.value;
-    const 상황 = document.getElementById('상황')?.value;
-    const 신용 = document.getElementById('신용점수')?.value;
-    const 창업연차 = document.getElementById('창업연차')?.value;
+function showResults(){
+  const list=document.getElementById('rlist');list.innerHTML='';
+  let m=FUNDS.filter(f=>f.type===selType);
 
-    if (업종) matches = matches.filter(f => !f.industries || f.industries.includes(업종));
-    if (상황) matches = matches.filter(f => !f.target || f.target.some(t => t === 상황));
-    if (창업연차) matches = matches.filter(f => !f.target || f.target.some(t => t === 창업연차) || !f.target.some(t => ['1년미만','1~3년','3년이상'].includes(t)));
-    if (매출 === '3억초과') matches = matches.filter(f => f.salesLimit !== '3억이하');
-    if (신용 && 신용 !== '595~839') matches = matches.filter(f => f.id !== 'f09');
+  if(selType==='소상공인'){
+    const 업종=document.getElementById('업종').value;
+    const 매출=document.getElementById('매출').value;
+    const 신용=document.getElementById('신용점수').value;
+    const cbs=[...document.querySelectorAll('#f소상공인 input[type=checkbox]:checked')].map(c=>c.value);
+    if(업종)m=m.filter(f=>!f.ind||f.ind.includes(업종));
+    if(매출==='3억초과')m=m.filter(f=>f.sl!=='3억이하');
+    if(신용&&신용!=='595~839')m=m.filter(f=>f.id!=='f09');
+    if(cbs.length>0)m=m.filter(f=>!f.target||f.target.some(t=>cbs.includes(t)));
+  }
+  if(selType==='예비창업자'){
+    const n=document.getElementById('나이_예비').value;
+    if(n==='40이상')m=m.filter(f=>f.ageTarget!=='39이하');
+  }
+  if(selType==='일반인'){
+    const n=document.getElementById('나이_일반').value;
+    const u=document.getElementById('지원유형').value;
+    const s=document.getElementById('소득').value;
+    if(n)m=m.filter(f=>!f.ageTarget||f.ageTarget===n);
+    if(u)m=m.filter(f=>!f.supportType||f.supportType===u);
+    if(s)m=m.filter(f=>!f.incomeTarget||f.incomeTarget.includes(s));
   }
 
-  // 예비창업자 필터
-  if (selectedType === '예비창업자') {
-    const 나이 = document.getElementById('나이_예비')?.value;
-    const 업종 = document.getElementById('업종_예비')?.value;
-    const 창업자금 = document.getElementById('창업자금')?.value;
-
-    if (나이 === '40이상') matches = matches.filter(f => f.ageTarget !== '39이하');
-    if (업종) matches = matches.filter(f => !f.fundIndustries || f.fundIndustries.includes(업종));
-    if (창업자금 === '5천이하') matches = matches.filter(f => f.id !== 'f13');
-    if (창업자금 === '2억초과') matches = matches.filter(f => f.id !== 'f12');
-  }
-
-  // 일반인 필터
-  if (selectedType === '일반인') {
-    const 나이 = document.getElementById('나이_일반')?.value;
-    const 유형 = document.getElementById('지원유형')?.value;
-    const 소득 = document.getElementById('소득')?.value;
-    const 특이상황 = document.getElementById('특이상황')?.value;
-
-    if (나이) matches = matches.filter(f => !f.ageTarget || f.ageTarget === 나이);
-    if (유형) matches = matches.filter(f => !f.supportType || f.supportType === 유형);
-    if (소득) matches = matches.filter(f => !f.incomeTarget || f.incomeTarget.includes(소득));
-    if (특이상황) {
-      const withSpecial = matches.filter(f => f.specialTarget && f.specialTarget.includes(특이상황));
-      if (withSpecial.length > 0) matches = withSpecial;
-    }
-  }
-
-  // 결과 없을 때
-  if (matches.length === 0) {
-    list.innerHTML = `
-      <div class="no-result">
-        <div class="no-result-icon">🔎</div>
-        <h3>조건에 맞는 자금을 찾지 못했습니다</h3>
-        <p>조건을 조정하거나 전문가 상담을 받아보세요</p>
-      </div>`;
+  if(m.length===0){
+    const kHref=kLink||'#';
+    const kOnclick=!kLink?`onclick="event.preventDefault();alert('관리자 설정에서 카카오 링크를 등록해 주세요.')"` :'';
+    list.innerHTML=`<div class="nr">
+      <div class="nr-icon">🔎</div>
+      <h3>조건에 맞는 자금을 찾지 못했습니다</h3>
+      <p>조건을 넓혀서 다시 검색하거나<br>전문가에게 직접 문의해 보세요</p>
+      <div class="nr-actions">
+        <button class="bp" onclick="goBackToForm()">← 조건 다시 입력하기</button>
+        <a class="bs" href="${kHref}" target="_blank" rel="noopener" ${kOnclick}>💬 전문가 무료 문의하기</a>
+      </div></div>`;
   } else {
-    matches.forEach((f, i) => {
-      list.innerHTML += renderCard(f, i);
-    });
+    m.forEach((f,i)=>{list.innerHTML+=card(f,i);});
   }
 
-  // 카운트·타이틀
-  const typeLabel = { '소상공인':'소상공인', '예비창업자':'예비창업자', '일반인':'일반인' };
-  document.getElementById('resultTitle').textContent = typeLabel[selectedType] + ' 맞춤 정책자금';
-  document.getElementById('resultSub').textContent = '2026년 기준 조건에 맞는 지원 사업입니다';
-  document.getElementById('resultCount').textContent = matches.length + '개';
-
-  // 화면 전환
+  const lbl={소상공인:'소상공인',예비창업자:'예비창업자',일반인:'일반인'};
+  document.getElementById('rtl').textContent=lbl[selType]+' 맞춤 정책자금';
+  document.getElementById('rsub').textContent='2026년 기준 조건에 맞는 지원 사업입니다';
+  document.getElementById('rcnt').textContent=m.length+'개';
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('step3').classList.remove('hidden');
-  document.getElementById('step3').classList.add('fade-in');
-  updateStep(3);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('step3').classList.add('fi');
+  updateStep(3);window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function renderCard(f, idx) {
-  const delay = idx * 0.06;
-  const badgeFn = {
-    green: 'fb-green', brown: 'fb-brown', blue: 'fb-blue', warn: 'fb-warn', gray: 'fb-gray'
-  };
-  const bClass = badgeFn[f.badgeStyle] || 'fb-green';
-  const badges = (f.badges || []).map(b => `<span class="fund-badge ${bClass}">${b}</span>`).join('');
-  const infoItems = (f.info || []).map(i => `
-    <div class="fund-info-item">
-      <div class="fii-label">${i.label}</div>
-      <div class="fii-value">${i.value}</div>
-    </div>`).join('');
-  const links = (f.links || []).map(l => `<a href="${l.url}" target="_blank" class="fund-link">${l.label} →</a>`).join('');
-  const phone = f.phone ? `<a href="tel:${f.phone}" class="fund-link phone">📞 ${f.phone}</a>` : '';
-
-  return `
-    <div class="fund-card type-${f.cardType}" style="animation-delay:${delay}s">
-      <div class="fund-badges">${badges}<span class="fund-badge fb-gray">${f.category}</span></div>
-      <div class="fund-top">
-        <div>
-          <div class="fund-name">${f.name}</div>
-          <div class="fund-org">${f.org}</div>
-        </div>
-        <div class="fund-amount">${f.amount}<small>${f.rate}</small></div>
-      </div>
-      <div class="fund-desc">${f.desc}</div>
-      <div class="fund-info-row">${infoItems}</div>
-      <div class="fund-actions">${links}${phone}</div>
-    </div>`;
+function card(f,i){
+  const bc=bmap[f.bs]||'fg2';
+  const bdg=(f.badges||[]).map(b=>`<span class="fb ${bc}">${b}</span>`).join('');
+  const inf=(f.info||[]).map(x=>`<div class="fii"><div class="fil">${x.l}</div><div class="fiv">${x.v}</div></div>`).join('');
+  const lnk=(f.links||[]).map(l=>`<a href="${l.url}" target="_blank" rel="noopener" class="fl">${l.lbl} →</a>`).join('');
+  const ph=f.ph?`<a href="tel:${f.ph}" class="fl ph">📞 ${f.ph}</a>`:'';
+  return `<div class="fc type-${f.ct}" style="animation-delay:${i*.06}s">
+    <div class="fbs">${bdg}<span class="fb fbg">${f.cat}</span></div>
+    <div class="ft"><div><div class="fn">${f.name}</div><div class="fo">${f.org}</div></div>
+    <div class="fa">${f.amount}<small>${f.rate}</small></div></div>
+    <div class="fd">${f.desc}</div>
+    <div class="fir">${inf}</div>
+    <div class="fac">${lnk}${ph}</div></div>`;
 }
 
-// ── 네비게이션 ─────────────────────────────────────────────────
-function goBack() {
-  document.getElementById('step2').classList.add('hidden');
-  document.getElementById('step1').style.display = '';
-  updateStep(1);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-function goBackToForm() {
-  document.getElementById('step3').classList.add('hidden');
-  document.getElementById('step2').classList.remove('hidden');
-  updateStep(2);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-function resetAll() {
-  selectedType = null;
-  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('selected'));
+function goBack(){document.getElementById('step2').classList.add('hidden');document.getElementById('step1').style.display='';updateStep(1);window.scrollTo({top:0,behavior:'smooth'});}
+function goBackToForm(){document.getElementById('step3').classList.add('hidden');document.getElementById('step2').classList.remove('hidden');updateStep(2);window.scrollTo({top:0,behavior:'smooth'});}
+function resetAll(){
+  selType=null;
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('selected'));
+  document.querySelectorAll('input[type=checkbox]').forEach(c=>{c.checked=false;c.closest('.cbi')?.classList.remove('checked');});
   document.getElementById('step3').classList.add('hidden');
   document.getElementById('step2').classList.add('hidden');
-  document.getElementById('step1').style.display = '';
-  updateStep(1);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('step1').style.display='';
+  updateStep(1);window.scrollTo({top:0,behavior:'smooth'});
 }
-
-// ── 스텝 인디케이터 업데이트 ───────────────────────────────────
-function updateStep(active) {
-  [1,2,3].forEach(n => {
-    const el = document.getElementById('step' + n + 'Indicator');
+function updateStep(a){
+  [1,2,3].forEach(n=>{
+    const el=document.getElementById('s'+n+'i');
     el.classList.remove('active','done');
-    if (n < active) el.classList.add('done');
-    else if (n === active) el.classList.add('active');
+    if(n<a)el.classList.add('done');else if(n===a)el.classList.add('active');
   });
 }
 </script>

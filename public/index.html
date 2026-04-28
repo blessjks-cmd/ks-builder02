@@ -2,6 +2,22 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1DQTELQJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1DQTELQJZ');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wijv6rvjix");
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>정책자금 탐색기 — 내게 맞는 정부 지원금 찾기</title>
 <meta name="description" content="소상공인·예비창업자·일반인을 위한 2026년 정부 정책자금 맞춤 탐색기. 30초 안에 내 조건에 맞는 지원금을 찾아드립니다.">
@@ -9,236 +25,291 @@
 <meta property="og:description" content="소상공인·예비창업자·일반인 맞춤 정책자금 탐색. 30초 안에 찾아드립니다.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
-<meta name="theme-color" content="#1B5E3B">
+<meta name="theme-color" content="#1B4332">
 <meta name="google-adsense-account" content="ca-pub-3859842026332409">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3859842026332409" crossorigin="anonymous"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#012d1d",
+        "primary-container": "#1b4332",
+        "secondary": "#a14000",
+        "secondary-container": "#fe7a34",
+        "background": "#fcf9f6",
+        "surface": "#ffffff",
+        "surface-container": "#f1edea",
+        "surface-container-low": "#f7f3f0",
+        "surface-container-high": "#ebe7e4",
+        "on-surface": "#1c1c1a",
+        "on-surface-variant": "#414844",
+        "outline": "#717973",
+        "outline-variant": "#c1c8c2",
+      },
+      fontFamily: {
+        sans: ["Public Sans", "Noto Sans KR", "sans-serif"],
+      },
+    },
+  },
+}
+</script>
 <style>
-:root{
-  --bg:#F4F2EE;--bg2:#ECEAE5;--surface:#fff;--border:#D8D4CC;
-  --text-1:#1A1714;--text-2:#5A544C;--text-3:#8A8278;
-  --accent:#1B5E3B;--al:#E8F3ED;
-  --a2:#8B4513;--a2l:#FAF0E8;
-  --a3:#1A3A5C;--a3l:#E8EFF6;
-  --warn:#B85C00;--wl:#FEF3E8;
-  --api:#5B35A0;--apil:#F0EBFF;
-  --r:12px;--rs:8px;
-  --sh:0 2px 12px rgba(0,0,0,.07);--shl:0 8px 32px rgba(0,0,0,.12);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text-1);min-height:100vh;line-height:1.6;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-/* 헤더 */
-header{background:var(--accent);color:#fff;padding:0 24px}
-.hi{max-width:900px;margin:0 auto;padding:28px 0 24px}
-.hbadge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.06em;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 12px;margin-bottom:12px}
-header h1{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.3;margin-bottom:8px}
-header p{font-size:14px;opacity:.8}
-.hstats{display:flex;gap:24px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2)}
-.stat{text-align:center}.stat-num{font-size:22px;font-weight:700}.stat-label{font-size:11px;opacity:.7;margin-top:1px}
-/* 메인 */
-main{max-width:900px;margin:0 auto;padding:32px 24px 60px}
-/* 탭 */
-.tab-wrap{display:flex;gap:0;margin-bottom:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:4px;box-shadow:var(--sh)}
-.tab-btn{flex:1;padding:10px 16px;font-size:13px;font-weight:500;font-family:inherit;border:none;background:transparent;border-radius:var(--rs);cursor:pointer;color:var(--text-2);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
-.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 8px rgba(27,94,59,.25)}
-.tab-btn:hover:not(.active){background:var(--bg2)}
-/* 스텝 */
-.steps{display:flex;align-items:center;margin-bottom:24px}
-.step-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--text-3)}
-.step-item.active{color:var(--accent)}.step-item.done{color:var(--text-2)}
-.step-circle{width:26px;height:26px;border-radius:50%;background:var(--bg2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0}
-.step-item.active .step-circle{background:var(--accent);border-color:var(--accent);color:#fff}
-.step-item.done .step-circle{background:var(--al);border-color:var(--accent);color:var(--accent)}
-.step-line{flex:1;height:1.5px;background:var(--border);margin:0 10px;min-width:16px}
-/* 섹션 카드 */
-.sc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:16px;box-shadow:var(--sh);animation:fu .35s ease both}
-@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.stl{font-size:15px;font-weight:600;color:var(--text-1);margin-bottom:4px}
-.ssub{font-size:12px;color:var(--text-3);margin-bottom:18px}
-/* 유형 버튼 */
-.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.tb{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 12px;text-align:center;cursor:pointer;transition:all .2s;position:relative;min-height:110px}
-.tb:hover{border-color:var(--accent);background:var(--al);transform:translateY(-2px);box-shadow:var(--sh)}
-.tb.selected{border-color:var(--accent);background:var(--al);box-shadow:0 0 0 3px rgba(27,94,59,.12)}
-.ti{font-size:28px;margin-bottom:8px}.tn{font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:4px}.td{font-size:11px;color:var(--text-3);line-height:1.4}
-.tc{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:10px;display:none;align-items:center;justify-content:center}
-.tb.selected .tc{display:flex}
-/* 폼 */
-.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fgrp{display:flex;flex-direction:column;gap:6px}.fgrp.full{grid-column:1/-1}
-label{font-size:12px;font-weight:500;color:var(--text-2)}
-select{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rs);padding:10px 32px 10px 12px;font-size:13px;font-family:inherit;color:var(--text-1);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8278' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;min-height:44px}
-select:focus{border-color:var(--accent);background-color:var(--al)}
-/* 체크박스 */
-.cbg{display:flex;flex-direction:column;gap:8px}
-.cbi{display:flex;align-items:center;gap:10px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rs);padding:10px 12px;cursor:pointer;transition:all .15s;min-height:44px}
-.cbi:hover{border-color:var(--accent);background:var(--al)}
-.cbi.checked{border-color:var(--accent);background:var(--al)}
-.cbi input[type=checkbox]{width:16px;height:16px;flex-shrink:0;accent-color:var(--accent);cursor:pointer}
-.cbi span{font-size:13px;color:var(--text-1)}
-/* 버튼 */
-.bp{background:var(--accent);color:#fff;border:none;border-radius:var(--rs);padding:14px 28px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;min-height:48px}
-.bp:hover{background:#174e31;transform:translateY(-1px);box-shadow:var(--sh)}.bp:active{transform:translateY(0)}
-.bs{background:transparent;color:var(--text-2);border:1.5px solid var(--border);border-radius:var(--rs);padding:12px 20px;font-size:13px;font-weight:500;font-family:inherit;cursor:pointer;transition:all .2s;min-height:48px}
-.bs:hover{border-color:var(--text-2);background:var(--bg2)}
-.br{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
-/* 결과 헤더 */
-.rh{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px}
-.rc{font-size:13px;font-weight:600;color:var(--accent);background:var(--al);border:1px solid var(--accent);border-radius:20px;padding:4px 14px}
-/* ▼ 결과 카드 — 클릭 가능 */
-.fc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:12px;box-shadow:var(--sh);animation:fu .3s ease both;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s;cursor:pointer;text-decoration:none;display:block;color:inherit}
-.fc:hover{box-shadow:var(--shl);transform:translateY(-3px);border-color:var(--accent)}
-.fc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:4px 0 0 4px}
-.fc.type-b::before{background:var(--a2)}.fc.type-c::before{background:var(--a3)}.fc.type-warn::before{background:var(--warn)}.fc.type-api::before{background:var(--api)}
-.fc-hover-hint{position:absolute;top:12px;right:12px;font-size:10px;color:var(--text-3);opacity:0;transition:opacity .2s}
-.fc:hover .fc-hover-hint{opacity:1}
-.ft{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
-.fbs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
-.fb{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;letter-spacing:.03em}
-.fg2{background:var(--al);color:var(--accent);border:1px solid #B8DCCA}
-.fb2{background:var(--a2l);color:var(--a2);border:1px solid #DDCABB}
-.fb3{background:var(--a3l);color:var(--a3);border:1px solid #B8CEDE}
-.fbw{background:var(--wl);color:var(--warn);border:1px solid #F0C89A}
-.fbg{background:var(--bg2);color:var(--text-2);border:1px solid var(--border)}
-.fb-api{background:var(--apil);color:var(--api);border:1px solid #C9B8F0}
-.fn{font-size:15px;font-weight:700;color:var(--text-1)}.fo{font-size:11px;color:var(--text-3);margin-top:2px}
-.fa{font-size:17px;font-weight:700;color:var(--accent);white-space:nowrap;text-align:right;flex-shrink:0}
-.fa small{font-size:11px;font-weight:400;color:var(--text-3);display:block}
-.fd{font-size:12px;color:var(--text-2);line-height:1.65;margin-bottom:12px}
-.fir{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:14px}
-.fii{background:var(--bg);border-radius:var(--rs);padding:8px 10px}
-.fil{font-size:10px;color:var(--text-3);font-weight:500;margin-bottom:2px}.fiv{font-size:12px;color:var(--text-1);font-weight:500}
-.fac{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.go-hint{font-size:11px;color:var(--text-3);display:flex;align-items:center;gap:4px}
-/* API 로딩 */
-.api-loading{text-align:center;padding:32px 20px;color:var(--text-3)}
-.api-loading .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--api);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
-@keyframes spin{to{transform:rotate(360deg)}}
-/* API 섹션 구분 */
-.section-divider{display:flex;align-items:center;gap:12px;margin:24px 0 16px}
-.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:var(--border)}
-.section-divider span{font-size:12px;font-weight:500;color:var(--text-3);white-space:nowrap;padding:4px 10px;background:var(--bg2);border-radius:20px}
-/* 결과 0개 */
-.nr{text-align:center;padding:40px 20px}
-.nr-icon{font-size:44px;margin-bottom:14px}
-.nr h3{font-size:17px;font-weight:600;color:var(--text-1);margin-bottom:8px}
-.nr p{font-size:13px;color:var(--text-3);margin-bottom:24px;line-height:1.6}
-.nr-actions{display:flex;flex-direction:column;gap:10px;align-items:center}
-.nr-actions .bp,.nr-actions .bs{width:100%;max-width:280px;justify-content:center;text-decoration:none}
-/* 알림 배너 */
-.nb{background:var(--wl);border:1px solid #F0C89A;border-radius:var(--rs);padding:10px 14px;font-size:12px;color:var(--warn);margin-bottom:16px;display:flex;gap:8px;align-items:flex-start;line-height:1.5}
-/* CTA */
-.cta{background:var(--accent);border-radius:var(--r);padding:24px;color:#fff;text-align:center;margin-top:24px}
-.cta h3{font-size:16px;font-weight:600;margin-bottom:6px}.cta p{font-size:13px;opacity:.85;margin-bottom:16px}
-.cta-btn{background:#fff;color:var(--accent);border:none;border-radius:var(--rs);padding:13px 28px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;min-height:48px;line-height:1.4}
-.cta-btn:hover{background:var(--al)}
-/* 실시간 공고 필터 */
-.api-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.filter-btn{font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-2);cursor:pointer;transition:all .2s;font-family:inherit}
-.filter-btn.active{border-color:var(--api);background:var(--apil);color:var(--api)}
-.filter-btn:hover:not(.active){border-color:var(--text-2);background:var(--bg2)}
-.hidden{display:none!important}
-.fi{animation:fu .35s ease both}
-.lbl-sub{font-weight:400;color:var(--text-3)}
-.ssub-0{margin-bottom:0}
-.br-mt{margin-top:16px}
-/* 모바일 */
-@media(max-width:600px){
-  header{padding:0 16px}
-  header h1{font-size:20px}
-  .hstats{gap:16px}.stat-num{font-size:18px}
-  main{padding:20px 16px 48px}
-  .tg{grid-template-columns:1fr}
-  .tb{min-height:80px;padding:14px 16px;display:flex;align-items:center;gap:14px;text-align:left}
-  .ti{font-size:28px;margin-bottom:0;flex-shrink:0}
-  .tinfo{flex:1}
-  .fg{grid-template-columns:1fr}
-  .fgrp.full{grid-column:auto}
-  .ft{flex-direction:column;gap:6px}
-  .fa{text-align:left}
-  .fir{grid-template-columns:1fr 1fr}
-  .br{flex-direction:column}
-  .br .bp,.br .bs{width:100%;justify-content:center}
-  .steps{margin-bottom:20px}
-  .step-item span{display:none}
-  .step-line{min-width:12px;margin:0 6px}
-  .tab-btn span{display:none}
-  .tab-btn{padding:10px}
-}
-@media(max-width:380px){.fir{grid-template-columns:1fr}}
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .kakao-yellow { background-color: #FEE500; color: #191919; }
+  .kakao-yellow:hover { background-color: #FADA0A; }
+  .hidden { display: none !important; }
+  body { min-height: 100dvh; }
+
+  /* animations */
+  @keyframes fu { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .fi, .fc { animation: fu .35s ease both; }
+
+  /* tab active state (toggled by JS) */
+  .tab-btn { transition: all .2s; }
+  .tab-btn.active {
+    background-color: #1b4332 !important;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(27,67,50,.25);
+  }
+
+  /* step indicator states */
+  .step-item { color: #717973; }
+  .step-item .step-circle {
+    background: #ebe7e4; border: 1.5px solid #c1c8c2; color: #717973;
+  }
+  .step-item.active { color: #1b4332; }
+  .step-item.active .step-circle { background: #1b4332; border-color: #1b4332; color: #fff; }
+  .step-item.done { color: #414844; }
+  .step-item.done .step-circle { background: #E8F3ED; border-color: #1b4332; color: #1b4332; }
+
+  /* type selection card */
+  .tb.selected { border-color: #1b4332 !important; background-color: #E8F3ED !important; box-shadow: 0 0 0 3px rgba(27,67,50,.12); }
+  .tb.selected .tc { display: flex !important; }
+
+  /* checkbox row */
+  .cbi.checked { border-color: #1b4332 !important; background-color: #E8F3ED !important; }
+
+  /* filter button active */
+  .filter-btn { transition: all .2s; }
+  .filter-btn.active { border-color: #5B35A0 !important; background: #F0EBFF !important; color: #5B35A0 !important; }
+
+  /* select arrow */
+  select {
+    -webkit-appearance: none; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8278' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+
+  /* icon size helpers */
+  .icon-sm { font-size: 18px; }
+  .icon-md { font-size: 22px; }
+  .icon-fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  /* tc checkmark hidden by default */
+  .tc { display: none; }
+
+  /* ── JS-generated card classes ── */
+  .fc {
+    background: #fff; border: 1px solid #E5E3D8; border-radius: .75rem;
+    padding: 20px; margin-bottom: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    position: relative; overflow: hidden;
+    transition: box-shadow .2s, transform .2s;
+    cursor: pointer; text-decoration: none; display: block; color: inherit;
+  }
+  .fc:hover { box-shadow: 0 8px 32px rgba(0,0,0,.12); transform: translateY(-3px); border-color: #1b4332; }
+  .fc::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:#1b4332; border-radius:4px 0 0 4px; }
+  .fc.type-b::before { background:#8B4513; }
+  .fc.type-c::before { background:#1A3A5C; }
+  .fc.type-warn::before { background:#B85C00; }
+  .fc.type-api::before { background:#5B35A0; }
+  .fc-hover-hint { position:absolute; top:12px; right:12px; font-size:10px; color:#8A8278; opacity:0; transition:opacity .2s; }
+  .fc:hover .fc-hover-hint { opacity:1; }
+  .fbs { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:8px; }
+  .fb { font-size:10px; font-weight:600; padding:2px 8px; border-radius:4px; letter-spacing:.03em; }
+  .fg2 { background:#E8F3ED; color:#1b4332; border:1px solid #B8DCCA; }
+  .fb2 { background:#FAF0E8; color:#8B4513; border:1px solid #DDCABB; }
+  .fb3 { background:#E8EFF6; color:#1A3A5C; border:1px solid #B8CEDE; }
+  .fbw { background:#FEF3E8; color:#B85C00; border:1px solid #F0C89A; }
+  .fbg { background:#ECEAE5; color:#5A544C; border:1px solid #D8D4CC; }
+  .fb-api { background:#F0EBFF; color:#5B35A0; border:1px solid #C9B8F0; }
+  .ft { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:10px; }
+  .fn { font-size:15px; font-weight:700; color:#1A1714; }
+  .fo { font-size:11px; color:#8A8278; margin-top:2px; }
+  .fa { font-size:17px; font-weight:700; color:#1b4332; white-space:nowrap; text-align:right; flex-shrink:0; }
+  .fa small { font-size:11px; font-weight:400; color:#8A8278; display:block; }
+  .fd { font-size:12px; color:#5A544C; line-height:1.65; margin-bottom:12px; }
+  .fir { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin-bottom:14px; }
+  .fii { background:#F4F2EE; border-radius:8px; padding:8px 10px; }
+  .fil { font-size:10px; color:#8A8278; font-weight:500; margin-bottom:2px; }
+  .fiv { font-size:12px; color:#1A1714; font-weight:500; }
+  .fac { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .go-hint { font-size:11px; color:#8A8278; display:flex; align-items:center; gap:4px; }
+
+  /* API loading spinner */
+  .api-loading { text-align:center; padding:32px 20px; color:#8A8278; }
+  .spinner { width:32px; height:32px; border:3px solid #E5E3D8; border-top-color:#5B35A0; border-radius:50%; animation:spin .8s linear infinite; margin:0 auto 12px; }
+
+  /* No results */
+  .nr { text-align:center; padding:40px 20px; }
+  .nr-icon { font-size:44px; margin-bottom:14px; }
+  .nr h3 { font-size:17px; font-weight:600; color:#1A1714; margin-bottom:8px; }
+  .nr p { font-size:13px; color:#8A8278; margin-bottom:24px; line-height:1.6; }
+  .nr-actions { display:flex; flex-direction:column; gap:10px; align-items:center; }
+  .nr-actions .bp, .nr-actions .bs { width:100%; max-width:280px; justify-content:center; text-decoration:none; }
+
+  /* Section divider */
+  .section-divider { display:flex; align-items:center; gap:12px; margin:24px 0 16px; }
+  .section-divider::before, .section-divider::after { content:''; flex:1; height:1px; background:#E5E3D8; }
+  .section-divider span { font-size:12px; font-weight:500; color:#8A8278; white-space:nowrap; padding:4px 10px; background:#ECEAE5; border-radius:20px; }
+
+  /* JS-generated buttons (.bp .bs used in nr-actions and result page) */
+  .bp {
+    background:#1b4332; color:#fff; border:none; border-radius:8px;
+    padding:14px 28px; font-size:14px; font-weight:600; font-family:inherit;
+    cursor:pointer; transition:all .2s; display:inline-flex; align-items:center; gap:8px; min-height:48px;
+  }
+  .bp:hover { background:#012d1d; transform:translateY(-1px); box-shadow:0 2px 12px rgba(0,0,0,.07); }
+  .bp:active { transform:translateY(0); }
+  .bs {
+    background:transparent; color:#5A544C; border:1px solid #D8D4CC; border-radius:8px;
+    padding:12px 20px; font-size:13px; font-weight:500; font-family:inherit;
+    cursor:pointer; transition:all .2s; min-height:48px; text-decoration:none; display:inline-flex; align-items:center;
+  }
+  .bs:hover { border-color:#5A544C; background:#ECEAE5; }
+
+  /* mobile grid overrides */
+  @media(max-width:600px) {
+    .tg { grid-template-columns:1fr !important; }
+    .tb { min-height:80px; padding:14px 16px; display:flex !important; align-items:center; gap:14px; text-align:left; }
+    .ti { font-size:28px; margin-bottom:0; flex-shrink:0; }
+    .fg { grid-template-columns:1fr !important; }
+    .fgrp.full { grid-column:auto !important; }
+    .ft { flex-direction:column; gap:6px; }
+    .fa { text-align:left; }
+    .fir { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:380px) { .fir { grid-template-columns:1fr; } }
 </style>
 </head>
-<body>
+<body class="bg-background text-on-surface font-sans">
 
-<header>
-  <div class="hi">
-    <div class="hbadge">🇰🇷 2026년 최신 정보 · 실시간 공고 연동</div>
-    <h1>정책자금 탐색기</h1>
-    <p>내 상황에 맞는 정부 지원금을 30초 안에 찾아드립니다</p>
-    <div class="hstats">
-      <div class="stat"><div class="stat-num">34+</div><div class="stat-label">지원 사업</div></div>
-      <div class="stat"><div class="stat-num">실시간</div><div class="stat-label">공고 연동</div></div>
-      <div class="stat"><div class="stat-num">무료</div><div class="stat-label">이용 비용</div></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#FDFCF8] border-b border-[#E5E3D8] shadow-sm">
+  <div class="max-w-[900px] mx-auto px-4 py-3 flex items-center justify-between">
+    <div>
+      <div class="flex items-center gap-2 mb-0.5">
+        <span class="text-[10px] font-semibold bg-primary-container text-white px-2.5 py-0.5 rounded-full tracking-wide">🇰🇷 2026 최신</span>
+        <span class="text-[10px] text-outline">실시간 공고 연동</span>
+      </div>
+      <h1 class="text-[17px] font-bold text-primary-container tracking-tight leading-tight">정책자금 탐색기</h1>
+      <p class="text-xs text-on-surface-variant">내 상황에 맞는 정부 지원금을 30초 안에</p>
+    </div>
+    <div class="flex gap-5">
+      <div class="text-center">
+        <div class="text-base font-bold text-primary-container">34+</div>
+        <div class="text-[10px] text-outline">지원 사업</div>
+      </div>
+      <div class="text-center">
+        <div class="text-base font-bold text-secondary-container">실시간</div>
+        <div class="text-[10px] text-outline">공고 연동</div>
+      </div>
+      <div class="text-center">
+        <div class="text-base font-bold text-primary-container">무료</div>
+        <div class="text-[10px] text-outline">이용 비용</div>
+      </div>
     </div>
   </div>
 </header>
 
-<main>
+<main class="pt-[88px] pb-24 md:pb-10 px-4 max-w-[900px] mx-auto">
 
   <!-- 탭 -->
-  <div class="tab-wrap">
-    <button type="button" class="tab-btn active" id="tab-search" onclick="switchTab('search')">
-      🔍 <span>맞춤 탐색</span> — 조건으로 찾기
+  <div class="flex gap-1 mb-5 bg-white border border-[#E5E3D8] rounded-xl p-1 shadow-sm">
+    <button type="button" id="tab-search" onclick="switchTab('search')"
+      class="tab-btn active flex-1 py-2.5 px-3 text-sm font-semibold rounded-lg flex items-center justify-center gap-1.5 bg-primary-container text-white">
+      <span class="material-symbols-outlined icon-sm">search</span>
+      <span>맞춤 탐색</span>
     </button>
-    <button type="button" class="tab-btn" id="tab-live" onclick="switchTab('live')">
-      📡 <span>실시간 공고</span> — 최신 공고 보기
+    <button type="button" id="tab-live" onclick="switchTab('live')"
+      class="tab-btn flex-1 py-2.5 px-3 text-sm font-semibold rounded-lg flex items-center justify-center gap-1.5 text-on-surface-variant hover:bg-surface-container">
+      <span class="material-symbols-outlined icon-sm">rss_feed</span>
+      <span>실시간 공고</span>
     </button>
   </div>
 
   <!-- 탭1: 맞춤 탐색 -->
   <div id="view-search">
     <!-- 스텝 인디케이터 -->
-    <div class="steps">
-      <div class="step-item active" id="s1i"><div class="step-circle">1</div><span>유형 선택</span></div>
-      <div class="step-line"></div>
-      <div class="step-item" id="s2i"><div class="step-circle">2</div><span>조건 입력</span></div>
-      <div class="step-line"></div>
-      <div class="step-item" id="s3i"><div class="step-circle">3</div><span>결과 확인</span></div>
+    <div class="flex items-center mb-5">
+      <div class="step-item active flex items-center gap-2 text-xs font-semibold" id="s1i">
+        <div class="step-circle w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</div>
+        <span>유형 선택</span>
+      </div>
+      <div class="flex-1 h-px bg-[#E5E3D8] mx-3 min-w-[12px]"></div>
+      <div class="step-item flex items-center gap-2 text-xs font-semibold" id="s2i">
+        <div class="step-circle w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</div>
+        <span>조건 입력</span>
+      </div>
+      <div class="flex-1 h-px bg-[#E5E3D8] mx-3 min-w-[12px]"></div>
+      <div class="step-item flex items-center gap-2 text-xs font-semibold" id="s3i">
+        <div class="step-circle w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</div>
+        <span>결과 확인</span>
+      </div>
     </div>
 
     <!-- STEP 1 -->
-    <div class="sc" id="step1">
-      <div class="stl">나는 누구인가요?</div>
-      <div class="ssub">해당하는 유형을 선택해 주세요</div>
-      <div class="tg">
-        <div class="tb" onclick="selectType('소상공인',this)">
-          <div class="tc">✓</div><div class="ti">🏪</div>
-          <div class="tinfo"><div class="tn">소상공인 사장님</div><div class="td">현재 사업체를 운영 중인 개인·법인 사업자</div></div>
+    <div class="bg-white rounded-xl border border-[#E5E3D8] p-6 mb-4 shadow-sm" id="step1">
+      <div class="text-[15px] font-semibold text-on-surface mb-1">나는 누구인가요?</div>
+      <div class="text-xs text-outline mb-5">해당하는 유형을 선택해 주세요</div>
+      <div class="grid grid-cols-3 gap-3 tg">
+        <div class="tb border-2 border-[#E5E3D8] rounded-xl p-4 text-center cursor-pointer transition-all duration-200 hover:border-primary-container hover:bg-[#E8F3ED] hover:-translate-y-0.5 hover:shadow-md relative min-h-[110px]" onclick="selectType('소상공인',this)">
+          <div class="tc absolute top-2 right-2 w-5 h-5 rounded-full bg-primary-container text-white text-[10px] items-center justify-center">✓</div>
+          <div class="text-3xl mb-2 ti">🏪</div>
+          <div class="tinfo">
+            <div class="text-[13px] font-semibold text-on-surface mb-1 tn">소상공인 사장님</div>
+            <div class="text-[11px] text-outline leading-relaxed td">현재 사업체를 운영 중인 개인·법인 사업자</div>
+          </div>
         </div>
-        <div class="tb" onclick="selectType('예비창업자',this)">
-          <div class="tc">✓</div><div class="ti">🌱</div>
-          <div class="tinfo"><div class="tn">예비 창업자</div><div class="td">창업을 준비 중이거나 1년 미만 신규 사업자</div></div>
+        <div class="tb border-2 border-[#E5E3D8] rounded-xl p-4 text-center cursor-pointer transition-all duration-200 hover:border-primary-container hover:bg-[#E8F3ED] hover:-translate-y-0.5 hover:shadow-md relative min-h-[110px]" onclick="selectType('예비창업자',this)">
+          <div class="tc absolute top-2 right-2 w-5 h-5 rounded-full bg-primary-container text-white text-[10px] items-center justify-center">✓</div>
+          <div class="text-3xl mb-2 ti">🌱</div>
+          <div class="tinfo">
+            <div class="text-[13px] font-semibold text-on-surface mb-1 tn">예비 창업자</div>
+            <div class="text-[11px] text-outline leading-relaxed td">창업을 준비 중이거나 1년 미만 신규 사업자</div>
+          </div>
         </div>
-        <div class="tb" onclick="selectType('일반인',this)">
-          <div class="tc">✓</div><div class="ti">👤</div>
-          <div class="tinfo"><div class="tn">일반인·근로자</div><div class="td">취업·생활안정·주거 지원이 필요한 분</div></div>
+        <div class="tb border-2 border-[#E5E3D8] rounded-xl p-4 text-center cursor-pointer transition-all duration-200 hover:border-primary-container hover:bg-[#E8F3ED] hover:-translate-y-0.5 hover:shadow-md relative min-h-[110px]" onclick="selectType('일반인',this)">
+          <div class="tc absolute top-2 right-2 w-5 h-5 rounded-full bg-primary-container text-white text-[10px] items-center justify-center">✓</div>
+          <div class="text-3xl mb-2 ti">👤</div>
+          <div class="tinfo">
+            <div class="text-[13px] font-semibold text-on-surface mb-1 tn">일반인·근로자</div>
+            <div class="text-[11px] text-outline leading-relaxed td">취업·생활안정·주거 지원이 필요한 분</div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- STEP 2 -->
-    <div class="sc hidden" id="step2">
-      <div class="stl">조건을 입력해 주세요</div>
-      <div class="ssub">더 정확한 결과를 위해 해당하는 항목을 선택해 주세요</div>
+    <div class="bg-white rounded-xl border border-[#E5E3D8] p-6 mb-4 shadow-sm hidden" id="step2">
+      <div class="text-[15px] font-semibold text-on-surface mb-1">조건을 입력해 주세요</div>
+      <div class="text-xs text-outline mb-5">더 정확한 결과를 위해 해당하는 항목을 선택해 주세요</div>
 
       <!-- 소상공인 -->
       <div id="f소상공인">
-        <div class="fg">
-          <div class="fgrp"><label>업종</label>
-            <select id="업종">
+        <div class="grid grid-cols-2 gap-3.5 fg">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">업종</label>
+            <select id="업종" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="외식">외식업 (음식점·카페·제과)</option>
               <option value="도소매">도소매업</option>
@@ -248,43 +319,47 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
               <option value="기타">기타</option>
             </select>
           </div>
-          <div class="fgrp"><label>연 매출액</label>
-            <select id="매출">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">연 매출액</label>
+            <select id="매출" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="1억이하">1억 이하</option>
               <option value="1억3억">1억 초과 ~ 3억 이하</option>
               <option value="3억초과">3억 초과</option>
             </select>
           </div>
-          <div class="fgrp"><label>직원 수</label>
-            <select id="직원수">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">직원 수</label>
+            <select id="직원수" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="없음">없음 (1인 사업자)</option>
               <option value="1~4명">1~4명</option>
               <option value="5명이상">5명 이상</option>
             </select>
           </div>
-          <div class="fgrp"><label>창업 연차</label>
-            <select id="창업연차">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">창업 연차</label>
+            <select id="창업연차" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="1년미만">1년 미만</option>
               <option value="1~3년">1~3년</option>
               <option value="3년이상">3년 이상</option>
             </select>
           </div>
-          <div class="fgrp full">
-            <label>현재 상황 <span class="lbl-sub">(해당 항목 모두 선택 가능)</span></label>
-            <div class="cbg">
-              <label class="cbi"><input type="checkbox" value="경영안정" onchange="syncCb(this)"><span>일반 경영안정 자금 필요</span></label>
-              <label class="cbi"><input type="checkbox" value="재해" onchange="syncCb(this)"><span>재해·재난 피해</span></label>
-              <label class="cbi"><input type="checkbox" value="채무" onchange="syncCb(this)"><span>채무조정·재기 필요</span></label>
-              <label class="cbi"><input type="checkbox" value="성장" onchange="syncCb(this)"><span>성장·시설 투자 희망</span></label>
-              <label class="cbi"><input type="checkbox" value="청년고용" onchange="syncCb(this)"><span>청년 직원 고용 중</span></label>
-              <label class="cbi"><input type="checkbox" value="장애인" onchange="syncCb(this)"><span>장애인 사업자</span></label>
+          <div class="col-span-2 flex flex-col gap-1.5 fgrp full">
+            <label class="text-xs font-semibold text-on-surface-variant">현재 상황 <span class="font-normal text-outline">(해당 항목 모두 선택 가능)</span></label>
+            <div class="flex flex-col gap-2 cbg">
+              <label class="cbi flex items-center gap-2.5 bg-surface-container border border-[#E5E3D8] rounded-lg px-3 py-2.5 cursor-pointer transition-all min-h-[44px] hover:border-primary-container hover:bg-[#E8F3ED]"><input type="checkbox" value="경영안정" onchange="syncCb(this)" class="w-4 h-4 flex-shrink-0 accent-[#1b4332]"><span class="text-sm text-on-surface">일반 경영안정 자금 필요</span></label>
+              <label class="cbi flex items-center gap-2.5 bg-surface-container border border-[#E5E3D8] rounded-lg px-3 py-2.5 cursor-pointer transition-all min-h-[44px] hover:border-primary-container hover:bg-[#E8F3ED]"><input type="checkbox" value="재해" onchange="syncCb(this)" class="w-4 h-4 flex-shrink-0 accent-[#1b4332]"><span class="text-sm text-on-surface">재해·재난 피해</span></label>
+              <label class="cbi flex items-center gap-2.5 bg-surface-container border border-[#E5E3D8] rounded-lg px-3 py-2.5 cursor-pointer transition-all min-h-[44px] hover:border-primary-container hover:bg-[#E8F3ED]"><input type="checkbox" value="채무" onchange="syncCb(this)" class="w-4 h-4 flex-shrink-0 accent-[#1b4332]"><span class="text-sm text-on-surface">채무조정·재기 필요</span></label>
+              <label class="cbi flex items-center gap-2.5 bg-surface-container border border-[#E5E3D8] rounded-lg px-3 py-2.5 cursor-pointer transition-all min-h-[44px] hover:border-primary-container hover:bg-[#E8F3ED]"><input type="checkbox" value="성장" onchange="syncCb(this)" class="w-4 h-4 flex-shrink-0 accent-[#1b4332]"><span class="text-sm text-on-surface">성장·시설 투자 희망</span></label>
+              <label class="cbi flex items-center gap-2.5 bg-surface-container border border-[#E5E3D8] rounded-lg px-3 py-2.5 cursor-pointer transition-all min-h-[44px] hover:border-primary-container hover:bg-[#E8F3ED]"><input type="checkbox" value="청년고용" onchange="syncCb(this)" class="w-4 h-4 flex-shrink-0 accent-[#1b4332]"><span class="text-sm text-on-surface">청년 직원 고용 중</span></label>
+              <label class="cbi flex items-center gap-2.5 bg-surface-container border border-[#E5E3D8] rounded-lg px-3 py-2.5 cursor-pointer transition-all min-h-[44px] hover:border-primary-container hover:bg-[#E8F3ED]"><input type="checkbox" value="장애인" onchange="syncCb(this)" class="w-4 h-4 flex-shrink-0 accent-[#1b4332]"><span class="text-sm text-on-surface">장애인 사업자</span></label>
             </div>
           </div>
-          <div class="fgrp"><label>신용점수 (NICE 기준, 모르면 생략)</label>
-            <select id="신용점수">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">신용점수 (NICE 기준, 모르면 생략)</label>
+            <select id="신용점수" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">모름 / 해당없음</option>
               <option value="595이하">595점 이하</option>
               <option value="595~839">595~839점</option>
@@ -296,16 +371,18 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
 
       <!-- 예비창업자 -->
       <div id="f예비창업자" class="hidden">
-        <div class="fg">
-          <div class="fgrp"><label>나이</label>
-            <select id="나이_예비">
+        <div class="grid grid-cols-2 gap-3.5 fg">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">나이</label>
+            <select id="나이_예비" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="39이하">만 39세 이하 (청년)</option>
               <option value="40이상">만 40세 이상</option>
             </select>
           </div>
-          <div class="fgrp"><label>창업 예정 업종</label>
-            <select id="업종_예비">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">창업 예정 업종</label>
+            <select id="업종_예비" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="외식">외식업</option>
               <option value="IT">IT·기술 창업</option>
@@ -315,16 +392,18 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
               <option value="기타">기타</option>
             </select>
           </div>
-          <div class="fgrp"><label>예상 창업 자금</label>
-            <select id="창업자금">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">예상 창업 자금</label>
+            <select id="창업자금" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="5천이하">5천만원 이하</option>
               <option value="5천~2억">5천~2억원</option>
               <option value="2억초과">2억 초과</option>
             </select>
           </div>
-          <div class="fgrp"><label>현재 직업 상태</label>
-            <select id="직업상태">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">현재 직업 상태</label>
+            <select id="직업상태" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="직장인">직장인 (재직 중)</option>
               <option value="실직">실직·구직 중</option>
@@ -337,17 +416,19 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
 
       <!-- 일반인 -->
       <div id="f일반인" class="hidden">
-        <div class="fg">
-          <div class="fgrp"><label>나이</label>
-            <select id="나이_일반">
+        <div class="grid grid-cols-2 gap-3.5 fg">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">나이</label>
+            <select id="나이_일반" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="청년">만 39세 이하 (청년)</option>
               <option value="중장년">만 40~64세</option>
               <option value="노년">만 65세 이상</option>
             </select>
           </div>
-          <div class="fgrp"><label>필요한 지원 유형</label>
-            <select id="지원유형">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">필요한 지원 유형</label>
+            <select id="지원유형" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="취업">취업 지원</option>
               <option value="주거">주거·전세자금</option>
@@ -356,8 +437,9 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
               <option value="복지">복지·의료</option>
             </select>
           </div>
-          <div class="fgrp"><label>소득 수준</label>
-            <select id="소득">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">소득 수준</label>
+            <select id="소득" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">선택하세요</option>
               <option value="기초">기초생활수급자·차상위</option>
               <option value="저소득">저소득 (중위소득 100% 이하)</option>
@@ -365,8 +447,9 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
               <option value="일반">일반</option>
             </select>
           </div>
-          <div class="fgrp"><label>특이 상황</label>
-            <select id="특이상황">
+          <div class="flex flex-col gap-1.5 fgrp">
+            <label class="text-xs font-semibold text-on-surface-variant">특이 상황</label>
+            <select id="특이상황" class="bg-surface-container border border-[#E5E3D8] rounded-lg py-2.5 pl-3 pr-8 text-sm text-on-surface focus:border-primary-container outline-none transition min-h-[44px]">
               <option value="">해당없음</option>
               <option value="장애인">장애인</option>
               <option value="한부모">한부모 가정</option>
@@ -377,19 +460,24 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
         </div>
       </div>
 
-      <div class="br">
-        <button type="button" class="bp" onclick="showResults()">🔍 맞는 정책자금 찾기</button>
+      <div class="flex gap-2.5 mt-6 flex-wrap br">
+        <button type="button" class="bp" onclick="showResults()">
+          <span class="material-symbols-outlined icon-sm">search</span> 맞는 정책자금 찾기
+        </button>
         <button type="button" class="bs" onclick="goBack()">← 이전</button>
       </div>
     </div>
 
     <!-- STEP 3 -->
     <div class="hidden" id="step3">
-      <div class="nb">⚠️ 본 정보는 2026년 기준으로 작성되었으며, 정책 변경에 따라 내용이 달라질 수 있습니다. 신청 전 각 기관에 반드시 확인하세요.</div>
-      <div class="sc">
-        <div class="rh">
-          <div><div class="stl" id="rtl">맞춤 정책자금 결과</div><div class="ssub ssub-0" id="rsub">카드를 클릭하면 상세 페이지로 이동합니다</div></div>
-          <div class="rc" id="rcnt">0개</div>
+      <div class="bg-[#FEF3E8] border border-[#F0C89A] rounded-lg px-4 py-2.5 text-xs text-[#B85C00] mb-4 flex gap-2 items-start leading-relaxed nb">⚠️ 본 정보는 2026년 기준으로 작성되었으며, 정책 변경에 따라 내용이 달라질 수 있습니다. 신청 전 각 기관에 반드시 확인하세요.</div>
+      <div class="bg-white rounded-xl border border-[#E5E3D8] p-6 mb-4 shadow-sm">
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-5 rh">
+          <div>
+            <div class="text-[15px] font-semibold text-on-surface mb-0.5 stl" id="rtl">맞춤 정책자금 결과</div>
+            <div class="text-xs text-outline" id="rsub">카드를 클릭하면 상세 페이지로 이동합니다</div>
+          </div>
+          <div class="text-sm font-bold text-primary-container bg-[#E8F3ED] border border-primary-container rounded-full px-4 py-1 rc" id="rcnt">0개</div>
         </div>
         <div id="rlist"></div>
         <div id="api-result-section" class="hidden">
@@ -397,12 +485,16 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
           <div id="api-result-list"></div>
         </div>
       </div>
-      <div class="cta">
-        <h3>신청 방법이 복잡하게 느껴지시나요?</h3>
-        <p>22년 외식·프랜차이즈 전문가가 정책자금 신청부터 창업 전략까지 1:1로 도와드립니다</p>
-        <a id="ctaBtn" href="https://open.kakao.com/o/gbLSo8ri" class="cta-btn" target="_blank" rel="noopener">💬 무료 30분 상담 신청하기 →</a>
+      <!-- CTA -->
+      <div class="bg-primary-container rounded-xl p-6 text-white text-center mt-6 cta">
+        <h3 class="text-base font-semibold mb-1.5">신청 방법이 복잡하게 느껴지시나요?</h3>
+        <p class="text-sm opacity-80 mb-4">22년 외식·프랜차이즈 전문가가 정책자금 신청부터 창업 전략까지 1:1로 도와드립니다</p>
+        <a id="ctaBtn" href="https://open.kakao.com/o/gbLSo8ri" class="cta-btn kakao-yellow inline-flex items-center gap-2 font-bold rounded-xl px-7 py-3.5 text-sm min-h-[48px] transition-all hover:scale-[1.02] active:scale-[0.98]" target="_blank" rel="noopener">
+          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.553 1.706 4.8 4.27 6.054l-.841 3.097c-.102.375.125.75.5.75.143 0 .285-.045.405-.135l3.663-2.443c.328.045.66.072 1.003.072 4.97 0 9-3.185 9-7.115S16.97 3 12 3z"/></svg>
+          💬 무료 30분 상담 신청하기 →
+        </a>
       </div>
-      <div class="br br-mt">
+      <div class="flex gap-2.5 mt-4 flex-wrap br br-mt">
         <button type="button" class="bs" onclick="resetAll()">← 처음부터 다시</button>
         <button type="button" class="bs" onclick="goBackToForm()">← 조건 수정</button>
       </div>
@@ -411,16 +503,16 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
 
   <!-- 탭2: 실시간 공고 -->
   <div id="view-live" class="hidden">
-    <div class="sc">
-      <div class="stl">📡 실시간 정부 지원사업 공고</div>
-      <div class="ssub">기업마당 API 연동 — 중소벤처부·지자체 최신 공고를 실시간으로 불러옵니다</div>
-      <div class="api-filters">
-        <button type="button" class="filter-btn active" onclick="loadLive('',this)">전체</button>
-        <button type="button" class="filter-btn" onclick="loadLive('경쟁',this)">경쟁</button>
-        <button type="button" class="filter-btn" onclick="loadLive('창업',this)">창업</button>
-        <button type="button" class="filter-btn" onclick="loadLive('금융',this)">금융</button>
-        <button type="button" class="filter-btn" onclick="loadLive('기술',this)">기술</button>
-        <button type="button" class="filter-btn" onclick="loadLive('인력',this)">인력</button>
+    <div class="bg-white rounded-xl border border-[#E5E3D8] p-6 mb-4 shadow-sm">
+      <div class="text-[15px] font-semibold text-on-surface mb-1">📡 실시간 정부 지원사업 공고</div>
+      <div class="text-xs text-outline mb-4">기업마당 API 연동 — 중소벤처부·지자체 최신 공고를 실시간으로 불러옵니다</div>
+      <div class="flex gap-2 flex-wrap mb-4 api-filters">
+        <button type="button" class="filter-btn active text-xs font-semibold px-4 py-1.5 rounded-full border-2 cursor-pointer" onclick="loadLive('',this)">전체</button>
+        <button type="button" class="filter-btn text-xs font-semibold px-4 py-1.5 rounded-full border border-[#E5E3D8] bg-white text-on-surface-variant cursor-pointer hover:bg-surface-container" onclick="loadLive('경쟁',this)">경쟁</button>
+        <button type="button" class="filter-btn text-xs font-semibold px-4 py-1.5 rounded-full border border-[#E5E3D8] bg-white text-on-surface-variant cursor-pointer hover:bg-surface-container" onclick="loadLive('창업',this)">창업</button>
+        <button type="button" class="filter-btn text-xs font-semibold px-4 py-1.5 rounded-full border border-[#E5E3D8] bg-white text-on-surface-variant cursor-pointer hover:bg-surface-container" onclick="loadLive('금융',this)">금융</button>
+        <button type="button" class="filter-btn text-xs font-semibold px-4 py-1.5 rounded-full border border-[#E5E3D8] bg-white text-on-surface-variant cursor-pointer hover:bg-surface-container" onclick="loadLive('기술',this)">기술</button>
+        <button type="button" class="filter-btn text-xs font-semibold px-4 py-1.5 rounded-full border border-[#E5E3D8] bg-white text-on-surface-variant cursor-pointer hover:bg-surface-container" onclick="loadLive('인력',this)">인력</button>
       </div>
       <div id="liveList">
         <div class="api-loading"><div class="spinner"></div>최신 공고를 불러오는 중...</div>
@@ -428,7 +520,93 @@ select:focus{border-color:var(--accent);background-color:var(--al)}
     </div>
   </div>
 
+  <!-- 서비스 소개 -->
+  <div class="bg-white rounded-xl border border-[#E5E3D8] p-6 shadow-sm mt-2">
+    <div class="text-[15px] font-semibold text-on-surface mb-1">정책자금 탐색기란?</div>
+    <div class="text-xs text-outline mb-4">본 서비스에 대해 알아보세요</div>
+    <p class="text-sm text-on-surface-variant leading-relaxed mb-5">정책자금 탐색기는 <strong class="text-on-surface font-semibold">소상공인·예비창업자·일반 국민</strong>이 자신에게 맞는 정부 지원 자금을 빠르게 찾을 수 있도록 만들어진 <strong class="text-on-surface font-semibold">무료 안내 서비스</strong>입니다. 중소벤처기업부, 소상공인시장진흥공단, 고용노동부 등 주요 기관의 정책자금 정보를 한곳에 모아 조건별로 쉽게 탐색할 수 있습니다.</p>
+    <div class="grid grid-cols-3 gap-3 info-grid">
+      <div class="bg-surface-container border border-[#E5E3D8] rounded-xl p-4">
+        <div class="text-2xl mb-2">🔍</div>
+        <div class="text-sm font-bold text-on-surface mb-1">맞춤 탐색</div>
+        <div class="text-xs text-outline leading-relaxed">업종·매출·나이 등 내 조건을 입력하면 해당하는 정책자금만 필터링해 보여드립니다.</div>
+      </div>
+      <div class="bg-surface-container border border-[#E5E3D8] rounded-xl p-4">
+        <div class="text-2xl mb-2">📡</div>
+        <div class="text-sm font-bold text-on-surface mb-1">실시간 공고</div>
+        <div class="text-xs text-outline leading-relaxed">기업마당 API와 연동해 중소벤처부·지자체의 최신 지원사업 공고를 실시간으로 확인할 수 있습니다.</div>
+      </div>
+      <div class="bg-surface-container border border-[#E5E3D8] rounded-xl p-4">
+        <div class="text-2xl mb-2">🔗</div>
+        <div class="text-sm font-bold text-on-surface mb-1">공식 연결</div>
+        <div class="text-xs text-outline leading-relaxed">각 카드를 클릭하면 해당 기관의 공식 신청 페이지로 바로 이동합니다. 중간 단계 없이 바로 신청 가능합니다.</div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-2.5 mt-5">
+      <div class="bg-surface-container border border-[#E5E3D8] rounded-xl p-4">
+        <div class="text-sm font-semibold text-on-surface mb-1.5">Q. 이 서비스는 무료인가요?</div>
+        <div class="text-sm text-on-surface-variant leading-relaxed">네, 완전 무료입니다. 회원가입이나 개인정보 제출 없이 이용할 수 있습니다.</div>
+      </div>
+      <div class="bg-surface-container border border-[#E5E3D8] rounded-xl p-4">
+        <div class="text-sm font-semibold text-on-surface mb-1.5">Q. 정보가 최신인가요?</div>
+        <div class="text-sm text-on-surface-variant leading-relaxed">하드코딩된 정보는 2026년 기준으로 작성되었습니다. 실시간 공고 탭은 기업마당 API를 통해 최신 공고를 바로 불러옵니다. 단, 정책 변경이 잦으므로 신청 전 반드시 각 기관 공식 사이트에서 확인하세요.</div>
+      </div>
+      <div class="bg-surface-container border border-[#E5E3D8] rounded-xl p-4">
+        <div class="text-sm font-semibold text-on-surface mb-1.5">Q. 정책자금 신청을 대신 해주나요?</div>
+        <div class="text-sm text-on-surface-variant leading-relaxed">아니요, 본 서비스는 정보 안내 목적으로만 운영됩니다. 신청은 각 기관 공식 홈페이지 또는 담당자를 통해 직접 하셔야 합니다. 신청 절차에 도움이 필요하시면 페이지 내 상담 신청 버튼을 이용해 주세요.</div>
+      </div>
+      <div class="bg-surface-container border border-[#E5E3D8] rounded-xl p-4">
+        <div class="text-sm font-semibold text-on-surface mb-1.5">Q. 소상공인이 아닌데 이용할 수 있나요?</div>
+        <div class="text-sm text-on-surface-variant leading-relaxed">네, 예비 창업자와 일반 국민(근로자·취업준비생·청년 등)도 이용 가능합니다. 유형 선택 화면에서 해당하는 항목을 선택하면 맞춤 정보를 안내해 드립니다.</div>
+      </div>
+    </div>
+  </div>
+
 </main>
+
+<!-- Mobile Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-white border-t border-[#E5E3D8] shadow-[0_-4px_6px_-1px_rgba(27,67,50,0.05)] md:hidden">
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-container transition-colors" href="#" onclick="switchTab('search');return false;">
+    <span class="material-symbols-outlined icon-md">search</span>
+    <span class="text-[11px] font-medium mt-0.5">탐색</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-container transition-colors" href="#" onclick="switchTab('live');return false;">
+    <span class="material-symbols-outlined icon-md">rss_feed</span>
+    <span class="text-[11px] font-medium mt-0.5">실시간</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-primary-container bg-[#E9F0EE] rounded-xl px-3 py-1.5" href="https://open.kakao.com/o/gbLSo8ri" target="_blank" rel="noopener">
+    <span class="material-symbols-outlined icon-md icon-fill">chat</span>
+    <span class="text-[11px] font-semibold mt-0.5">상담</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-container transition-colors" href="mailto:blessjks@gmail.com">
+    <span class="material-symbols-outlined icon-md">mail</span>
+    <span class="text-[11px] font-medium mt-0.5">문의</span>
+  </a>
+</nav>
+
+<!-- Floating CTA (desktop) -->
+<div class="hidden md:flex fixed bottom-8 right-8 z-40">
+  <a href="https://open.kakao.com/o/gbLSo8ri" target="_blank" rel="noopener"
+     class="kakao-yellow flex items-center gap-3 px-6 py-4 rounded-full shadow-lg hover:scale-105 transition-transform font-semibold text-sm">
+    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.553 1.706 4.8 4.27 6.054l-.841 3.097c-.102.375.125.75.5.75.143 0 .285-.045.405-.135l3.663-2.443c.328.045.66.072 1.003.072 4.97 0 9-3.185 9-7.115S16.97 3 12 3z"/></svg>
+    전문가 1:1 카카오 상담
+  </a>
+</div>
+
+<footer class="bg-[#1A1714] text-white/55 py-9 px-6 mt-0">
+  <div class="max-w-[900px] mx-auto">
+    <div class="text-base font-bold text-white mb-2">정책자금 탐색기</div>
+    <div class="text-xs leading-relaxed text-white/45 max-w-2xl mb-5">소상공인·예비창업자·일반 국민을 위한 정부 정책자금 맞춤 안내 서비스입니다. 본 서비스의 정보는 각 주관기관의 공식 자료를 기반으로 작성되었으며, 실제 지원 여부는 신청 자격 요건 및 예산 현황에 따라 달라질 수 있습니다. 신청 전 반드시 해당 기관의 공식 홈페이지 또는 담당자에게 확인하시기 바랍니다.</div>
+    <div class="flex gap-5 flex-wrap py-3.5 border-t border-b border-white/10 mb-4">
+      <a href="/privacy.html" class="text-white/65 no-underline text-xs font-medium hover:text-white transition-colors">개인정보 처리방침</a>
+      <a href="mailto:blessjks@gmail.com" class="text-white/65 no-underline text-xs font-medium hover:text-white transition-colors">문의하기</a>
+    </div>
+    <div class="text-[11px] text-white/30 leading-relaxed">
+      © 2026 정책자금 탐색기. 본 사이트의 정보는 참고용으로 제공되며 법적 효력이 없습니다.<br>
+      본 사이트는 Google 애드센스를 통해 광고가 게재됩니다.
+    </div>
+  </div>
+</footer>
 
 <script>
 // ── API 설정
@@ -523,7 +701,7 @@ function apiCard(item,idx){
     <div class="fbs"><span class="fb fb-api">📡 실시간 공고</span>${ddayBadge}<span class="fb fbg">${org}</span></div>
     <div class="ft">
       <div><div class="fn">${name}</div><div class="fo">${org}</div></div>
-      <div class="fa" style="font-size:13px;color:var(--api)">${end?'~'+end:'상시'}<small style="color:var(--text-3)">신청기간</small></div>
+      <div class="fa" style="font-size:13px;color:#5B35A0">${end?'~'+end:'상시'}<small style="color:#8A8278">신청기간</small></div>
     </div>
     ${field?`<div class="fd">${field.substring(0,100)}${field.length>100?'...':''}</div>`:''}
     <div class="fac"><span class="go-hint">🔗 클릭하면 공식 페이지로 이동합니다</span></div>

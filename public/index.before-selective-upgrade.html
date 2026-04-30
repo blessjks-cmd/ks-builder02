@@ -159,14 +159,6 @@ tailwind.config = {
   .fiv { font-size:12px; color:#1A1714; font-weight:500; }
   .fac { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
   .go-hint { font-size:11px; color:#8A8278; display:flex; align-items:center; gap:4px; }
-  .match-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:2px 0 10px; }
-  .score-pill { font-size:11px; font-weight:700; color:#1b4332; background:#E8F3ED; border:1px solid #B8DCCA; border-radius:999px; padding:3px 10px; }
-  .difficulty-pill { font-size:10px; font-weight:600; color:#5A544C; background:#ECEAE5; border:1px solid #D8D4CC; border-radius:999px; padding:3px 9px; }
-  .reason-list { display:flex; flex-direction:column; gap:4px; margin-bottom:12px; }
-  .reason-item { font-size:11px; color:#5A544C; line-height:1.45; display:flex; gap:6px; }
-  .reason-item::before { content:'✓'; color:#1b4332; font-weight:700; flex-shrink:0; }
-  .source-row { display:flex; gap:6px; flex-wrap:wrap; margin:10px 0 12px; }
-  .source-chip { font-size:10px; color:#8A8278; background:#F4F2EE; border:1px solid #D8D4CC; border-radius:4px; padding:2px 7px; }
 
   /* API loading spinner */
   .api-loading { text-align:center; padding:32px 20px; color:#8A8278; }
@@ -231,8 +223,8 @@ tailwind.config = {
       </div>
       <div class="flex gap-7 shrink-0">
         <div class="text-center">
-          <div class="text-2xl font-bold" id="verifiedCount">38</div>
-          <div class="text-[11px] opacity-65 mt-1">검증 사업</div>
+          <div class="text-2xl font-bold">34+</div>
+          <div class="text-[11px] opacity-65 mt-1">지원 사업</div>
         </div>
         <div class="text-center hidden sm:block">
           <div class="text-2xl font-bold">실시간</div>
@@ -592,7 +584,7 @@ tailwind.config = {
     <div class="flex flex-col gap-3">
       <div class="bg-surface-container border border-[#D5D9D5] rounded-xl p-4">
         <div class="text-sm font-semibold text-on-surface mb-1.5">Q. 이 서비스는 무료인가요?</div>
-        <div class="text-sm text-on-surface-variant leading-relaxed">네, 완전 무료입니다. 맞춤 탐색은 회원가입 없이 이용할 수 있으며, 상담·알림 신청 시에만 이메일 등 필요한 정보를 선택적으로 제출합니다.</div>
+        <div class="text-sm text-on-surface-variant leading-relaxed">네, 완전 무료입니다. 회원가입이나 개인정보 제출 없이 이용할 수 있습니다.</div>
       </div>
       <div class="bg-surface-container border border-[#D5D9D5] rounded-xl p-4">
         <div class="text-sm font-semibold text-on-surface mb-1.5">Q. 결과에 나온 지원금을 반드시 받을 수 있나요?</div>
@@ -612,7 +604,7 @@ tailwind.config = {
       </div>
     </div>
     <div class="mt-4 pt-4 border-t border-[#E5E3D8]">
-      <a href="about.html" class="text-sm font-semibold text-primary-container hover:underline flex items-center gap-1">
+      <a href="/about.html" class="text-sm font-semibold text-primary-container hover:underline flex items-center gap-1">
         서비스 상세 소개 보기 →
       </a>
     </div>
@@ -634,7 +626,7 @@ tailwind.config = {
     <span class="material-symbols-outlined icon-md icon-fill">chat</span>
     <span class="text-[11px] font-semibold mt-0.5">상담</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-container transition-colors" href="contact.html">
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-container transition-colors" href="mailto:blessjks@gmail.com">
     <span class="material-symbols-outlined icon-md">mail</span>
     <span class="text-[11px] font-medium mt-0.5">문의</span>
   </a>
@@ -654,9 +646,9 @@ tailwind.config = {
     <div class="text-base font-bold text-white mb-2">정책자금 탐색기</div>
     <div class="text-xs leading-relaxed text-white/45 max-w-2xl mb-5">소상공인·예비창업자·일반 국민을 위한 정부 정책자금 맞춤 안내 서비스입니다. 본 서비스의 정보는 각 주관기관의 공식 자료를 기반으로 작성되었으며, 실제 지원 여부는 신청 자격 요건 및 예산 현황에 따라 달라질 수 있습니다. 신청 전 반드시 해당 기관의 공식 홈페이지 또는 담당자에게 확인하시기 바랍니다.</div>
     <div class="flex gap-5 flex-wrap py-3.5 border-t border-b border-white/10 mb-4">
-      <a href="about.html" class="text-white/65 no-underline text-xs font-medium hover:text-white transition-colors">서비스 소개</a>
-      <a href="privacy.html" class="text-white/65 no-underline text-xs font-medium hover:text-white transition-colors">개인정보 처리방침</a>
-      <a href="contact.html" class="text-white/65 no-underline text-xs font-medium hover:text-white transition-colors">문의하기</a>
+      <a href="/about.html" class="text-white/65 no-underline text-xs font-medium hover:text-white transition-colors">서비스 소개</a>
+      <a href="/privacy.html" class="text-white/65 no-underline text-xs font-medium hover:text-white transition-colors">개인정보 처리방침</a>
+      <a href="mailto:blessjks@gmail.com" class="text-white/65 no-underline text-xs font-medium hover:text-white transition-colors">문의하기</a>
     </div>
     <div class="text-[11px] text-white/30 leading-relaxed">
       © 2026 정책자금 탐색기. 본 사이트의 정보는 참고용으로 제공되며 법적 효력이 없습니다.<br>
@@ -669,11 +661,8 @@ tailwind.config = {
 // ── API 설정
 const API_KEY='8dffc2a389f797288aa61817981ccac743a600cd3f5826121e26656d0128f1b8';
 const API_BASE='https://apis.data.go.kr/1421000/bizinfo/pblancBsnsService';
-// 운영 배포에서는 API 키 보호와 캐싱을 위해 프록시 URL을 넣으세요. 예: Cloudflare Workers, Vercel Functions
-const API_PROXY_URL='';
-const DATA_VERIFIED_AT='2026.04.30';
 
-// ── 검증사업 데이터
+// ── 하드코딩 데이터 (20종)
 const FUNDS=[
   {id:'f01',name:'소상공인 일반경영안정자금',org:'소상공인시장진흥공단',type:'소상공인',cat:'융자',amount:'최대 7천만원',rate:'저금리',target:['경영안정','성장'],ind:['외식','도소매','서비스','제조','운수','기타'],desc:'민간금융 이용이 어려운 소상공인에게 저금리로 운영자금·시설자금을 지원합니다.',info:[{l:'신청처',v:'소상공인24 (ols.semas.or.kr)'},{l:'신청방법',v:'온라인 또는 소진공 지역센터'},{l:'서류',v:'사업자등록증, 부가가치세 신고서'}],url:'https://ols.semas.or.kr',ph:'1533-0100',badges:['저금리 융자','운전·시설자금'],bs:'g',ct:'a'},
   {id:'f02',name:'소상공인 부담경감 크레딧',org:'중소벤처기업부·소진공',type:'소상공인',cat:'바우처',amount:'최대 50만원',rate:'무상',target:['경영안정'],ind:['외식','도소매','서비스','제조','운수','기타'],sl:'3억이하',desc:'연 매출 3억원 이하 소상공인에게 공과금·4대보험료 납부 시 최대 50만원 크레딧을 지원합니다.',info:[{l:'대상',v:'연매출 3억 이하 소상공인'},{l:'신청방법',v:'온라인 신청 후 카드 등록'}],url:'https://ols.semas.or.kr',ph:'1533-0100',badges:['무상 바우처','간편 신청'],bs:'g',ct:'a'},
@@ -695,91 +684,10 @@ const FUNDS=[
   {id:'f18',name:'근로장려금 (EITC)',org:'국세청',type:'일반인',cat:'생활지원',amount:'최대 330만원',rate:'무상',supportType:'생활',incomeTarget:['저소득'],desc:'일하는 저소득 가구에게 현금을 지원합니다. 맞벌이 가구 최대 330만원.',info:[{l:'대상',v:'저소득 근로자·사업자'},{l:'신청기간',v:'매년 5월 정기 신청'}],url:'https://www.hometax.go.kr',ph:'126',badges:['현금 지원','연 1회'],bs:'w',ct:'warn'},
   {id:'f19',name:'국민내일배움카드',org:'고용노동부',type:'일반인',cat:'교육',amount:'최대 500만원',rate:'자부담 15~55%',supportType:'교육',desc:'5년간 300~500만원 한도에서 직업훈련비를 지원합니다. AI·디지털 과정도 포함됩니다.',info:[{l:'한도',v:'5년 300만원 (일부 500만원)'},{l:'자부담',v:'15~55% (저소득층 감면)'}],url:'https://www.hrd.go.kr',ph:'1350',badges:['직업훈련','AI 과정 포함'],bs:'g',ct:'a'},
   {id:'f20',name:'긴급복지 생계지원금',org:'보건복지부',type:'일반인',cat:'복지',amount:'최대 월 162만원',rate:'무상',supportType:'복지',incomeTarget:['기초','저소득'],desc:'갑작스러운 위기 상황으로 생계 유지가 어려운 가구에게 긴급 생계비를 지원합니다.',info:[{l:'대상',v:'위기상황 발생 가구'},{l:'신청처',v:'읍면동 주민센터'}],url:'https://www.bokjiro.go.kr',ph:'129',badges:['긴급 지원','복지로'],bs:'w',ct:'warn'},
-  {id:'f21',name:'소상공인정책자금 상환연장',org:'소상공인시장진흥공단',type:'소상공인',cat:'상환지원',amount:'상환기간 연장',rate:'기존 대출 조건별',target:['경영안정','채무'],ind:['외식','도소매','서비스','제조','운수','기타'],desc:'기존 소상공인 정책자금 이용자의 상환 부담을 줄이기 위해 상환기간 조정·조건변경을 지원하는 제도입니다.',info:[{l:'대상',v:'소상공인정책자금 이용 사업자'},{l:'신청처',v:'소상공인정책자금 누리집'},{l:'확인',v:'접수 가능 여부 수시 확인'}],url:'https://ols.semas.or.kr/ols/man/SMAN010M/page.do',ph:'1533-0100',badges:['상환 부담 완화','공식 접수'],bs:'w',ct:'warn'},
-  {id:'f22',name:'중소기업 긴급경영안정자금',org:'중소벤처기업진흥공단',type:'소상공인',cat:'융자',amount:'운전 최대 10억원',rate:'정책자금 기준금리',target:['경영안정','재해'],ind:['제조','서비스','도소매','운수','기타'],desc:'재해 또는 일시적 경영애로를 겪는 중소기업의 안정적인 경영기반 조성을 위한 융자지원 사업입니다.',info:[{l:'대상',v:'재해·일시적 경영애로 기업'},{l:'문의',v:'1357 또는 1811-3655'},{l:'접수',v:'자금 소진 시까지'}],url:'https://esg.kosmes.or.kr/support/support_01.do',ph:'1811-3655',badges:['경영애로','재해 지원'],bs:'w',ct:'warn'},
-  {id:'f23',name:'중소기업 매출채권팩토링',org:'중소벤처기업진흥공단',type:'소상공인',cat:'운전자금',amount:'매출채권 기반',rate:'공고별 상이',target:['경영안정','성장'],ind:['제조','도소매','서비스','운수','기타'],desc:'납품 후 결제 지연으로 운전자금 부담이 있는 기업이 매출채권을 기반으로 유동성을 확보할 수 있도록 지원합니다.',info:[{l:'대상',v:'매출채권 보유 중소기업'},{l:'용도',v:'운전자금 유동성 확보'},{l:'신청',v:'중진공 정책자금 채널 확인'}],url:'https://www.kosmes.or.kr',ph:'1811-3655',badges:['운전자금','매출채권'],bs:'br',ct:'b'},
-  {id:'f24',name:'중소기업 구조개선전용자금',org:'중소벤처기업진흥공단',type:'소상공인',cat:'재기지원',amount:'최대 60억원',rate:'정책자금 기준금리',target:['채무','경영안정'],ind:['제조','서비스','도소매','운수','기타'],desc:'경영애로, 워크아웃, 회생절차 등 구조개선이 필요한 중소기업의 사업정상화를 지원하는 정책자금입니다.',info:[{l:'대상',v:'구조개선 대상 중소기업'},{l:'한도',v:'시설·운전 최대 60억원'},{l:'문의',v:'중소기업 통합콜센터 1357'}],url:'https://esg.kosmes.or.kr/support/support_05.do',ph:'1357',badges:['구조개선','재기 지원'],bs:'w',ct:'warn'},
-  {id:'f25',name:'진로제시 컨설팅',org:'중소벤처기업진흥공단',type:'소상공인',cat:'컨설팅',amount:'소요경비 90% 지원',rate:'기업부담 10%',target:['채무','경영안정'],ind:['외식','도소매','서비스','제조','운수','기타'],desc:'경영위기 기업을 전문가가 방문 진단하여 구조개선, 사업정리, 기업회생 방향을 제시하고 연계 지원합니다.',info:[{l:'대상',v:'경영위기 또는 재창업지원 중소기업'},{l:'지원',v:'컨설팅 비용 90% 지원'},{l:'문의',v:'중진공 또는 1357'}],url:'https://esg.kosmes.or.kr/support/support_05.do',ph:'1357',badges:['전문가 진단','재기 방향'],bs:'w',ct:'warn'},
-  {id:'f26',name:'제조현장 스마트화자금',org:'중소벤처기업진흥공단',type:'소상공인',cat:'융자',amount:'최대 100억원',rate:'정책자금 기준금리',target:['성장'],ind:['제조','기타'],desc:'스마트공장 추진기업과 4차 산업 관련 신산업·신기술 영위 기업의 생산성 향상과 설비투자를 지원합니다.',info:[{l:'대상',v:'스마트공장·신기술 영위 기업'},{l:'한도',v:'시설 중심 최대 100억원'},{l:'신청',v:'중진공 정책자금'}],url:'https://esg.kosmes.or.kr/support/support_01.do',ph:'1811-3655',badges:['스마트공장','시설투자'],bs:'g',ct:'a'},
-  {id:'f27',name:'Net-Zero 유망기업 지원자금',org:'중소벤처기업진흥공단',type:'소상공인',cat:'융자',amount:'최대 60억원',rate:'정책자금 기준금리',target:['성장'],ind:['제조','기타'],desc:'그린기술 사업화와 저탄소·친환경 제조를 추진하는 성장유망 기업의 시설·운전자금을 지원합니다.',info:[{l:'대상',v:'그린기술·저탄소 제조 기업'},{l:'용도',v:'시설·운전자금'},{l:'문의',v:'1811-3655'}],url:'https://esg.kosmes.or.kr/support/support_01.do',ph:'1811-3655',badges:['친환경','성장자금'],bs:'g',ct:'a'},
-  {id:'f28',name:'창업기반지원자금',org:'중소벤처기업진흥공단',type:'예비창업자',cat:'융자',amount:'최대 60억원',rate:'정책자금 기준금리 우대',ageTarget:'',desc:'업력 7년 미만 중소기업의 창업 활성화를 위해 시설자금과 운전자금을 융자 지원하는 사업입니다.',info:[{l:'대상',v:'업력 7년 미만 중소기업'},{l:'운전',v:'운전자금 5억원 이내'},{l:'문의',v:'1811-3655'}],url:'https://esg.kosmes.or.kr/support/support_01.do',ph:'1811-3655',badges:['창업 7년 이내','시설·운전'],bs:'g',ct:'a'},
-  {id:'f29',name:'일자리창출촉진자금',org:'중소벤처기업진흥공단',type:'예비창업자',cat:'융자',amount:'최대 60억원',rate:'정책자금 기준금리 우대',desc:'업력 7년 미만 중소기업 중 일자리 창출·유지·인재육성 기업을 우대 지원하는 창업 정책자금입니다.',info:[{l:'대상',v:'창업 7년 미만 및 일자리 창출 기업'},{l:'운전',v:'운전자금 5억원 이내'},{l:'특징',v:'일자리 우대'}],url:'https://esg.kosmes.or.kr/support/support_01.do',ph:'1811-3655',badges:['일자리 우대','창업자금'],bs:'b',ct:'c'},
-  {id:'f30',name:'개발기술사업화자금',org:'중소벤처기업진흥공단',type:'예비창업자',cat:'융자',amount:'최대 30억원',rate:'정책자금 기준금리',desc:'개발한 기술을 사업화하려는 기업의 기술사업화와 시장 진입을 돕기 위한 시설·운전자금입니다.',info:[{l:'대상',v:'개발기술 사업화 기업'},{l:'운전',v:'운전자금 5억원 이내'},{l:'신청',v:'중진공 정책자금'}],url:'https://esg.kosmes.or.kr/support/support_01.do',ph:'1811-3655',badges:['기술사업화','R&D 이후'],bs:'g',ct:'a'},
-  {id:'f31',name:'재창업자금',org:'중소벤처기업진흥공단',type:'예비창업자',cat:'재창업',amount:'최대 60억원',rate:'정책자금 기준금리',desc:'실패 경험 후 다시 창업을 준비하거나 재창업 후 7년 미만인 중소기업의 재도전을 지원합니다.',info:[{l:'대상',v:'예비재창업자 및 재창업 7년 미만'},{l:'용도',v:'시설·운전자금'},{l:'문의',v:'1357'}],url:'https://esg.kosmes.or.kr/support/support_05.do',ph:'1357',badges:['재도전','재창업'],bs:'w',ct:'warn'},
-  {id:'f32',name:'창업에듀 온라인 창업교육',org:'창업진흥원·K-Startup',type:'예비창업자',cat:'교육',amount:'무료 교육',rate:'무상',desc:'예비창업자와 창업기업을 위한 온라인 창업교육 포털로 창업 단계별 이론·실무 강좌를 무료 제공합니다.',info:[{l:'대상',v:'예비창업자·창업기업'},{l:'내용',v:'온라인 창업 강좌'},{l:'신청',v:'K-Startup 창업에듀'}],url:'https://www.k-startup.go.kr/edu/edu/',ph:'1357',badges:['무료 교육','창업 기본기'],bs:'b',ct:'c'},
-  {id:'f33',name:'U-CONNECT 투자유치 플랫폼',org:'신용보증기금',type:'예비창업자',cat:'투자연계',amount:'투자유치 연계',rate:'플랫폼 지원',desc:'스타트업과 민간 투자자를 연결하는 신용보증기금의 민간투자유치 플랫폼으로 데모데이와 투자 매칭 기회를 제공합니다.',info:[{l:'대상',v:'투자유치 희망 스타트업'},{l:'지원',v:'민간 투자자 매칭'},{l:'문의',v:'1588-6565'}],url:'https://www.kodit.co.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11235&mi=2564',ph:'1588-6565',badges:['투자유치','데모데이'],bs:'br',ct:'b'},
-  {id:'f34',name:'벤처투자연계보증',org:'기술보증기금',type:'예비창업자',cat:'보증',amount:'운전 70억·시설 100억',rate:'보증료 우대',desc:'벤처투자를 받은 기술중소기업의 스케일업을 위해 기술개발·사업화 자금을 후속 보증지원하는 우대보증 상품입니다.',info:[{l:'대상',v:'벤처투자 받은 기술중소기업'},{l:'우대',v:'보증료 감면·보증비율 우대'},{l:'문의',v:'1544-1120'}],url:'https://cyber.kibo.or.kr/org/kibo/cbr/mp/tooja/platform_grn.html',ph:'1544-1120',badges:['투자연계','기술보증'],bs:'br',ct:'b'},
-  {id:'f35',name:'청년전용 보증부월세대출',org:'주택도시기금',type:'일반인',cat:'주거',amount:'보증금 4,500만원·월세 1,200만원',rate:'보증금 연 1.3%',ageTarget:'청년',supportType:'주거',desc:'만 19~34세 청년에게 전월세보증금과 월세를 저리로 지원하는 주택도시기금 대출 상품입니다.',info:[{l:'대상',v:'무주택 청년, 연소득 등 요건 충족'},{l:'월세',v:'월 50만원 이내'},{l:'문의',v:'1566-9009'}],url:'https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020701.jsp',ph:'1566-9009',badges:['청년 주거','저리 대출'],bs:'b',ct:'c'},
-  {id:'f36',name:'중소기업취업청년 전월세보증금대출',org:'주택도시기금',type:'일반인',cat:'주거',amount:'최대 1억원',rate:'연 1.2%',ageTarget:'청년',supportType:'주거',desc:'중소·중견기업에 재직 중인 청년 또는 청년창업 지원을 받은 청년에게 전월세보증금을 저리로 지원합니다.',info:[{l:'대상',v:'중소·중견기업 재직 청년 등'},{l:'기간',v:'최장 10년 이용 가능'},{l:'문의',v:'1566-9009'}],url:'https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020604.jsp',ph:'1566-9009',badges:['중소기업 청년','전세자금'],bs:'b',ct:'c'},
-  {id:'f37',name:'실업급여 수급자격 온라인 교육',org:'고용노동부·고용24',type:'일반인',cat:'취업지원',amount:'온라인 교육',rate:'무상',supportType:'취업',desc:'실업급여 수급자격 신청 전 구직급여 제도와 신청 절차를 안내하는 온라인 교육 서비스입니다.',info:[{l:'대상',v:'고용보험 실직자 중 수급 요건 충족자'},{l:'신청',v:'고용24 온라인'},{l:'문의',v:'1350'}],url:'https://www.gov.kr/portal/rcvfvrSvc/dtlEx/B55190400005',ph:'1350',badges:['구직급여','온라인 교육'],bs:'g',ct:'a'},
-  {id:'f38',name:'기술평가보증',org:'기술보증기금',type:'예비창업자',cat:'보증',amount:'심사별 산정',rate:'보증료 별도',desc:'기술력, 시장성, 사업성 등을 평가해 기술중소기업의 금융지원을 돕는 기술보증기금의 핵심 보증 제도입니다.',info:[{l:'대상',v:'기술력 보유 중소기업'},{l:'심사',v:'기술평가 후 보증 여부 결정'},{l:'문의',v:'1544-1120'}],url:'https://www.kibo.or.kr/main/work/work010202.do',ph:'1544-1120',badges:['기술평가','보증 심사'],bs:'br',ct:'b'},
 ];
 
 const bmap={g:'fg2',br:'fb2',b:'fb3',w:'fbw',gray:'fbg'};
 let selType=null;
-
-document.getElementById('verifiedCount').textContent=FUNDS.length;
-
-function esc(value){
-  return String(value??'').replace(/[&<>"']/g,mark=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[mark]));
-}
-function safeUrl(url){
-  try{
-    const parsed=new URL(url||'',location.href);
-    return ['http:','https:','mailto:','tel:'].includes(parsed.protocol)?parsed.href:'#';
-  }catch(e){return '#';}
-}
-function uniq(list){return [...new Set(list.filter(Boolean))];}
-function difficultyOf(f){
-  if(f.cat==='융자'||f.cat==='보증'||String(f.amount).includes('억원'))return '서류/심사 중요';
-  if(f.cat==='채무조정'||f.cat==='재기지원')return '상담 권장';
-  return '비교적 간편';
-}
-function getFormProfile(){
-  const val=id=>document.getElementById(id)?.value||'';
-  const checked=selector=>[...document.querySelectorAll(selector+' input[type=checkbox]:checked')].map(c=>c.value);
-  if(selType==='소상공인')return{type:selType,industry:val('업종'),sales:val('매출'),staff:val('직원수'),years:val('창업연차'),credit:val('신용점수'),needs:checked('#f소상공인')};
-  if(selType==='예비창업자')return{type:selType,age:val('나이_예비'),industry:val('업종_예비'),capital:val('창업자금'),job:val('직업상태'),needs:[]};
-  if(selType==='일반인')return{type:selType,age:val('나이_일반'),supportType:val('지원유형'),income:val('소득'),special:val('특이상황'),needs:[]};
-  return{type:selType,needs:[]};
-}
-function scoreFund(f,p){
-  let score=45;
-  const reasons=[];
-  const cautions=[];
-
-  if(p.type==='소상공인'){
-    if(p.industry&&f.ind?.includes(p.industry)){score+=18;reasons.push(`${p.industry} 업종 적용 가능`);}
-    if(p.sales==='3억초과'&&f.sl==='3억이하'){score-=80;cautions.push('연매출 3억원 이하 전용 사업일 수 있음');}
-    if(p.sales&&f.sl==='3억이하'&&p.sales!=='3억초과'){score+=12;reasons.push('매출 기준이 주요 대상과 맞음');}
-    if(p.years==='1년미만'&&/창업|초기|신규|AI활용 교육/.test(f.name+f.desc)){score+=8;reasons.push('초기 사업자도 검토 가능한 성격');}
-    const matchedNeeds=(f.target||[]).filter(t=>p.needs.includes(t));
-    if(matchedNeeds.length){score+=matchedNeeds.length*20;reasons.push(`${matchedNeeds.join(', ')} 상황과 직접 연관`);}
-    if(p.staff==='없음'&&f.cat==='교육'){score+=5;reasons.push('1인 사업자도 부담 없이 검토 가능');}
-  }
-
-  if(p.type==='예비창업자'){
-    if(p.age==='40이상'&&f.ageTarget==='39이하'){score-=90;cautions.push('만 39세 이하 청년 전용 사업');}
-    if(p.age==='39이하'&&f.ageTarget==='39이하'){score+=24;reasons.push('청년 창업자 연령 조건과 맞음');}
-    if(p.industry==='외식'&&/소상공인|상권|점포|외식/.test(f.name+f.desc)){score+=18;reasons.push('외식/점포 창업 준비에 적합');}
-    if(p.industry==='IT'&&/중소기업|기술|창업/.test(f.name+f.desc)){score+=12;reasons.push('기술 기반 창업자금 검토 가능');}
-    if(p.capital==='2억초과'&&(f.cat==='융자'||f.cat==='보증')){score+=14;reasons.push('큰 초기 자금 수요에 맞는 융자/보증 성격');}
-    if(p.job==='실직'&&/교육|멘토링|창업/.test(f.desc)){score+=7;reasons.push('전환 준비 단계에서 활용 가능');}
-  }
-
-  if(p.type==='일반인'){
-    if(p.age&&(!f.ageTarget||f.ageTarget===p.age)){score+=16;reasons.push(`${p.age} 연령대에서 검토 가능`);}
-    if(p.supportType&&f.supportType===p.supportType){score+=28;reasons.push(`${p.supportType} 지원 목적과 일치`);}
-    if(p.income&&f.incomeTarget?.includes(p.income)){score+=22;reasons.push(`${p.income} 소득 조건과 연관`);}
-    if(p.special==='장애인'&&/장애/.test(f.name+f.desc)){score+=15;reasons.push('장애인 관련 우대 가능성');}
-  }
-
-  if(f.rate==='무상'||String(f.rate).includes('비과세')){score+=6;reasons.push('상환 부담이 낮은 지원 성격');}
-  if(f.url){score+=4;reasons.push('공식 신청/안내 페이지 확인 가능');}
-
-  score=Math.max(0,Math.min(100,score));
-  return{...f,score,reasons:uniq(reasons).slice(0,3),cautions:uniq(cautions).slice(0,2),difficulty:difficultyOf(f)};
-}
 
 loadLive('',document.querySelector('.filter-btn.active'));
 
@@ -793,26 +701,14 @@ function switchTab(tab){
 
 // ── 기업마당 API
 async function fetchBizInfo(keyword='',numOfRows=20){
-  const params=new URLSearchParams({dataType:'json',pageNo:1,numOfRows});
+  const params=new URLSearchParams({serviceKey:API_KEY,dataType:'json',pageNo:1,numOfRows});
   if(keyword)params.append('hashtags',keyword);
-  if(!API_PROXY_URL)params.append('serviceKey',API_KEY);
-  const controller=new AbortController();
-  const timer=setTimeout(()=>controller.abort(),10000);
   try{
-    const endpoint=API_PROXY_URL||API_BASE;
-    const res=await fetch(`${endpoint}?${params}`,{signal:controller.signal});
-    clearTimeout(timer);
-    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    const res=await fetch(`${API_BASE}?${params}`);
     const data=await res.json();
-    const resultCode=data?.response?.header?.resultCode;
-    if(resultCode&&resultCode!=='00')throw new Error(data?.response?.header?.resultMsg||`API result ${resultCode}`);
     const items=data?.response?.body?.items?.item||[];
     return Array.isArray(items)?items:[items];
-  }catch(e){
-    clearTimeout(timer);
-    console.error('API 오류:',e);
-    return[];
-  }
+  }catch(e){console.error('API 오류:',e);return[];}
 }
 
 // ── 실시간 공고 탭 로드
@@ -842,11 +738,11 @@ async function loadApiForResult(keyword){
 
 // ── API 카드 렌더링
 function apiCard(item,idx){
-  const name=esc(item.pblancNm||'제목 없음');
-  const org=esc(item.instNm||item.jrsdInsttNm||'기관 미상');
+  const name=item.pblancNm||'제목 없음';
+  const org=item.instNm||item.jrsdInsttNm||'기관 미상';
   const end=formatDate(item.reqstEndDe);
-  const url=safeUrl(item.pblancUrl||item.detailUrl||'https://www.bizinfo.go.kr');
-  const field=esc(item.bsnsSumryCn||'');
+  const url=item.pblancUrl||item.detailUrl||'https://www.bizinfo.go.kr';
+  const field=item.bsnsSumryCn||'';
   const dday=calcDday(item.reqstEndDe);
   const ddayBadge=dday!==null?(dday<0?'<span class="fb fbg">마감</span>':dday===0?'<span class="fb fbw">D-Day</span>':`<span class="fb fb-api">D-${dday}</span>`):'';
   return `<a href="${url}" target="_blank" rel="noopener" class="fc type-api" style="animation-delay:${idx*.05}s">
@@ -857,7 +753,6 @@ function apiCard(item,idx){
       <div class="fa" style="font-size:13px;color:#5B35A0">${end?'~'+end:'상시'}<small style="color:#8A8278">신청기간</small></div>
     </div>
     ${field?`<div class="fd">${field.substring(0,100)}${field.length>100?'...':''}</div>`:''}
-    <div class="source-row"><span class="source-chip">출처: 기업마당 API</span><span class="source-chip">실시간 조회</span></div>
     <div class="fac"><span class="go-hint">🔗 클릭하면 공식 페이지로 이동합니다</span></div>
   </a>`;
 }
@@ -875,7 +770,7 @@ function subscribe(inputId,okId,formId){
   if(!email||!email.includes('@')||!email.includes('.')){alert('올바른 이메일 주소를 입력해 주세요');return;}
   
   // Formspree 전송 로직 추가
-  fetch('https://formspree.io/f/mjglblol', {
+  fetch('https://formspree.io/f/mqakpjed', {
     method: 'POST',
     body: JSON.stringify({ email: email }),
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
@@ -900,7 +795,6 @@ function subscribe(inputId,okId,formId){
 // ── 결과 출력
 async function showResults(){
   const list=document.getElementById('rlist');list.innerHTML='';
-  const profile=getFormProfile();
   let m=FUNDS.filter(f=>f.type===selType);
   let apiKeyword='';
 
@@ -930,8 +824,6 @@ async function showResults(){
     apiKeyword='지원';
   }
 
-  m=m.map(f=>scoreFund(f,profile)).filter(f=>f.score>=35).sort((a,b)=>b.score-a.score);
-
   if(m.length===0){
     list.innerHTML=`<div class="nr"><div class="nr-icon">🔎</div><h3>조건에 맞는 자금을 찾지 못했습니다</h3><p>조건을 넓혀서 다시 검색하거나<br>전문가에게 직접 문의해 보세요</p>
       <div class="nr-actions">
@@ -945,7 +837,6 @@ async function showResults(){
   const lbl={소상공인:'소상공인',예비창업자:'예비창업자',일반인:'일반인'};
   document.getElementById('rtl').textContent=lbl[selType]+' 맞춤 정책자금';
   document.getElementById('rcnt').textContent=m.length+'개';
-  document.getElementById('rsub').textContent='추천 점수와 추천 이유를 함께 확인하세요';
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('step3').classList.remove('hidden');
   document.getElementById('step3').classList.add('fi');
@@ -956,23 +847,18 @@ async function showResults(){
 // ── 하드코딩 카드 렌더링
 function card(f,i){
   const bc=bmap[f.bs]||'fg2';
-  const bdg=(f.badges||[]).map(b=>`<span class="fb ${bc}">${esc(b)}</span>`).join('');
-  const inf=(f.info||[]).map(x=>`<div class="fii"><div class="fil">${esc(x.l)}</div><div class="fiv">${esc(x.v)}</div></div>`).join('');
-  const reasons=(f.reasons?.length?f.reasons:['기본 조건에서 검토 가능한 정책자금입니다']).map(r=>`<div class="reason-item">${esc(r)}</div>`).join('');
-  const cautions=(f.cautions||[]).map(c=>`<span class="source-chip">주의: ${esc(c)}</span>`).join('');
-  const ph=f.ph?`<span class="go-hint" onclick="event.stopPropagation();window.location.href='tel:${esc(f.ph)}'">📞 ${esc(f.ph)}</span>`:'';
-  return `<a href="${safeUrl(f.url||'#')}" target="_blank" rel="noopener" class="fc type-${esc(f.ct)}" style="animation-delay:${i*.06}s">
+  const bdg=(f.badges||[]).map(b=>`<span class="fb ${bc}">${b}</span>`).join('');
+  const inf=(f.info||[]).map(x=>`<div class="fii"><div class="fil">${x.l}</div><div class="fiv">${x.v}</div></div>`).join('');
+  const ph=f.ph?`<span class="go-hint" onclick="event.stopPropagation();window.location.href='tel:${f.ph}'">📞 ${f.ph}</span>`:'';
+  return `<a href="${f.url||'#'}" target="_blank" rel="noopener" class="fc type-${f.ct}" style="animation-delay:${i*.06}s">
     <div class="fc-hover-hint">클릭하여 신청 페이지로 이동 →</div>
-    <div class="fbs">${bdg}<span class="fb fbg">${esc(f.cat)}</span></div>
+    <div class="fbs">${bdg}<span class="fb fbg">${f.cat}</span></div>
     <div class="ft">
-      <div><div class="fn">${esc(f.name)}</div><div class="fo">${esc(f.org)}</div></div>
-      <div class="fa">${esc(f.amount)}<small>${esc(f.rate)}</small></div>
+      <div><div class="fn">${f.name}</div><div class="fo">${f.org}</div></div>
+      <div class="fa">${f.amount}<small>${f.rate}</small></div>
     </div>
-    <div class="match-meta"><span class="score-pill">추천도 ${f.score}점</span><span class="difficulty-pill">${esc(f.difficulty)}</span></div>
-    <div class="reason-list">${reasons}</div>
-    <div class="fd">${esc(f.desc)}</div>
+    <div class="fd">${f.desc}</div>
     <div class="fir">${inf}</div>
-    <div class="source-row"><span class="source-chip">출처: 공식 기관 자료 기반</span><span class="source-chip">최종 확인: ${DATA_VERIFIED_AT}</span>${cautions}</div>
     <div class="fac"><span class="go-hint">🔗 클릭하면 공식 신청 페이지로 이동합니다</span>${ph}</div>
   </a>`;
 }

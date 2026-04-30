@@ -223,7 +223,7 @@ tailwind.config = {
       </div>
       <div class="flex gap-7 shrink-0">
         <div class="text-center">
-          <div class="text-2xl font-bold">20+</div>
+          <div class="text-2xl font-bold">34+</div>
           <div class="text-[11px] opacity-65 mt-1">지원 사업</div>
         </div>
         <div class="text-center hidden sm:block">
@@ -765,21 +765,31 @@ function calcDday(str){
   return Math.floor((end-today)/86400000);
 }
 
-// ── 체크박스
-function syncCb(cb){cb.closest('.cbi').classList.toggle('checked',cb.checked);}
-
-// ── 유형 선택
-function selectType(type,el){
-  selType=type;
-  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('selected'));
-  el.classList.add('selected');
-  setTimeout(()=>{
-    document.getElementById('step1').style.display='none';
-    document.getElementById('step2').classList.remove('hidden');
-    ['소상공인','예비창업자','일반인'].forEach(t=>{const f=document.getElementById('f'+t);if(f)f.classList.add('hidden');});
-    document.getElementById('f'+type).classList.remove('hidden');
-    updateStep(2);window.scrollTo({top:0,behavior:'smooth'});
-  },250);
+function subscribe(inputId,okId,formId){
+  const email=document.getElementById(inputId).value.trim();
+  if(!email||!email.includes('@')||!email.includes('.')){alert('올바른 이메일 주소를 입력해 주세요');return;}
+  
+  // Formspree 전송 로직 추가
+  fetch('https://formspree.io/f/mqakpjed', {
+    method: 'POST',
+    body: JSON.stringify({ email: email }),
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      const subs=JSON.parse(localStorage.getItem('subs')||'[]');
+      if(!subs.includes(email)){subs.push(email);localStorage.setItem('subs',JSON.stringify(subs));}
+      if(formId)document.getElementById(formId).style.display='none';
+      if(okId) {
+        const okEl = document.getElementById(okId);
+        if(okEl) okEl.style.display='block';
+      }
+      alert('구독 신청이 완료되었습니다!');
+    } else {
+      alert('오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+    }
+  }).catch(error => {
+    alert('오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+  });
 }
 
 // ── 결과 출력

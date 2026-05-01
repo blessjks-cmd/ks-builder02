@@ -784,6 +784,19 @@ function scoreFund(f,p){
 loadLive('',document.querySelector('.filter-btn.active'));
 
 // ── 탭 전환
+function selectType(type,btn){
+  selType=type;
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('step1').style.display='none';
+  document.getElementById('step2').classList.remove('hidden');
+  document.getElementById('f소상공인').classList.toggle('hidden',type!=='소상공인');
+  document.getElementById('f예비창업자').classList.toggle('hidden',type!=='예비창업자');
+  document.getElementById('f일반인').classList.toggle('hidden',type!=='일반인');
+  updateStep(2);window.scrollTo({top:0,behavior:'smooth'});
+}
+function syncCb(el){el.closest('.cbi').classList.toggle('checked',el.checked);}
+
 function switchTab(tab){
   document.getElementById('tab-search').classList.toggle('active',tab==='search');
   document.getElementById('tab-live').classList.toggle('active',tab==='live');
